@@ -63,6 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Main\Scripts\AutoDestroy.cs" />
+    <Compile Include="Assets\_Main\Scripts\BulletController.cs" />
+    <Compile Include="Assets\_Main\Scripts\DetectionArea.cs" />
+    <Compile Include="Assets\_Main\Scripts\EnemyController.cs" />
     <Compile Include="Assets\_Main\Scripts\LifeController.cs" />
     <Compile Include="Assets\_Main\Scripts\PlayerController.cs" />
     <Reference Include="UnityEngine">
@@ -596,6 +600,9 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Unity/Programación_1/TP_Programacion_1/TP_Programacion_1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>D:/Unity/Programación_1/TP_Programacion_1/TP_Programacion_1/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
       <HintPath>D:/Unity/Programación_1/TP_Programacion_1/TP_Programacion_1/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
@@ -659,6 +666,9 @@
     <Reference Include="Unity.2D.Animation.Editor">
       <HintPath>D:/Unity/Programación_1/TP_Programacion_1/TP_Programacion_1/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>D:/Unity/Programación_1/TP_Programacion_1/TP_Programacion_1/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>D:/Unity/Programación_1/TP_Programacion_1/TP_Programacion_1/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
@@ -673,12 +683,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Unity/Programación_1/TP_Programacion_1/TP_Programacion_1/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>D:/Unity/Programación_1/TP_Programacion_1/TP_Programacion_1/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>D:/Unity/Programación_1/TP_Programacion_1/TP_Programacion_1/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
