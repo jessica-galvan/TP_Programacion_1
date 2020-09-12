@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 435619329345401615}
   - component: {fileID: 435619329345401614}
   - component: {fileID: 435619329345401613}
+  - component: {fileID: 2128633791}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 718143559
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 4883129791460916795, guid: d348dff3819df794186a80cb95777629,
     type: 3}
@@ -102,9 +103,6 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   cooldown: 3
   bullet: {fileID: 3762357391963882051, guid: 703240003517a7548acfa66829f70e0c, type: 3}
-  shootingSound: {fileID: 0}
-  deathSound: {fileID: 0}
-  damageSound: {fileID: 0}
 --- !u!114 &435619329345401614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d646ed565d16f46bf0aec53454b081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 10
+  maxLife: 50
   currentLife: 0
 --- !u!61 &435619329345401613
 BoxCollider2D:
@@ -132,7 +130,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0024585389, y: -0.03441584}
+  m_Offset: {x: 0.014976263, y: -0.07599115}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -143,5 +141,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18723893, y: 0.2511683}
+  m_Size: {x: 0.52788806, y: 0.6561923}
   m_EdgeRadius: 0
+--- !u!50 &2128633791
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435619329345401714}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
