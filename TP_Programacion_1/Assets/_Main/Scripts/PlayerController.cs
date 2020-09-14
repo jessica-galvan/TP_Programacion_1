@@ -1,49 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Health Settings")]
     public LifeController lifeController = null;
+    private Animator animatorController;
 
     [Header("Movement Settings")]
     [SerializeField] private float speed = 0f;
     [SerializeField] private Vector3 offset = Vector3.zero;
-    [SerializeField] private float cooldown = 0f;
-
-    
-    public AudioSource audioSource;
-
-    //[SerializeField] private int maxAmmo = 6;
-
-    //private int ammo;
-    private float cooldownTimer = 0f;
     private float movement = 0f;
     private bool facingRight = true; //facingRight es para chequear en que sentido esta mirando el personaje. 
-    
-    
 
-    [Header("Prefabs Settings")]
+    [Header("Attack Settings")]
+    [SerializeField] private int maxAmmo = 6;
+    [SerializeField] private int currentAmmo;
+    [SerializeField] private float cooldown = 0f;
+    private float cooldownTimer = 0f;
     [SerializeField] private GameObject bullet = null;
 
-    /*[Header("Audio Sources")]
+    [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
-    [SerializeField] private AudioSource deathSound = null;
-    [SerializeField] private AudioSource damageSound = null;*/
+    [SerializeField] private AudioSource rechargeAmmoSound = null;
+    [SerializeField] private AudioSource negativeActionSound = null;
 
-    [SerializeField] private Animator animatorController;
-
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-    void Awake ()
+    void Start ()
     {
        animatorController = GetComponent<Animator>();
+       currentAmmo = maxAmmo;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //MOVEMENT
@@ -60,42 +49,34 @@ public class PlayerController : MonoBehaviour
             facingRight = true;
         }
 
-//Disparo
-        if(Input.GetAxisRaw("Fire1") > 0 && Time.time > cooldownTimer) //Si recibe input de disparo y el cooldown ya no esta
+        //Disparo
+        if(Input.GetAxisRaw("Fire1") > 0 && Time.time > cooldownTimer && currentAmmo > 0) //Si recibe input de disparo y el cooldown ya no esta
         {
             Shoot();
+        } else if(Input.GetAxisRaw("Fire1") > 0 && Time.time > cooldownTimer || Input.GetAxisRaw("Fire1") > 0 && currentAmmo > 0)
+        {
+           negativeActionSound.Play();
         }
-        
 
+        //RecargarAmmo
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RechargeAmmo();
+        }
 
-//Animaciones
-
-         if(Input.GetKeyDown(KeyCode.D))
-            {
-                animatorController.SetBool("IsRunning", true);
-            }
-        if (Input.GetKeyUp(KeyCode.D))
-            {
-                animatorController.SetBool("IsRunning", false);
-            }
-
-            if(Input.GetKeyDown(KeyCode.A))
-            {
-                animatorController.SetBool("IsRunning", true);
-            }
-        if (Input.GetKeyUp(KeyCode.A))
-            {
-                animatorController.SetBool("IsRunning", false);
-            }
-
-            
-
+        //Animaciones
+        if(movement != 0)
+        {
+            animatorController.SetBool("IsRunning", true);
+        } else
+        {
+            animatorController.SetBool("IsRunning", false);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("EnemyBullet"))
             {
-                audioSource.Play();
                 animatorController.SetTrigger("TakeDamage");
             }
     }
@@ -103,13 +84,19 @@ public class PlayerController : MonoBehaviour
     void Shoot() //Instancia una bala
     {
         Instantiate(bullet, transform.position + offset, transform.rotation);
-        //shootingSound.Play();
+        shootingSound.Play();
         cooldownTimer += cooldown;
-        //ammo--;
+        currentAmmo--;
     }
 
     void Flip() //Solo flippea al personaje
     {
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    void RechargeAmmo()
+    {
+        currentAmmo = maxAmmo;
+        rechargeAmmoSound.Play();
     }
 }
