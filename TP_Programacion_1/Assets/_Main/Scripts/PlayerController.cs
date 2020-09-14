@@ -11,10 +11,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 0f;
     [SerializeField] private Vector3 offset = Vector3.zero;
     [SerializeField] private float cooldown = 0f;
+
+    
+    public AudioSource audioSource;
+
+    //[SerializeField] private int maxAmmo = 6;
+
+    //private int ammo;
     private float cooldownTimer = 0f;
     private float movement = 0f;
     private bool facingRight = true; //facingRight es para chequear en que sentido esta mirando el personaje. 
-
+    
+    
 
     [Header("Prefabs Settings")]
     [SerializeField] private GameObject bullet = null;
@@ -24,10 +32,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource deathSound = null;
     [SerializeField] private AudioSource damageSound = null;*/
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Animator animatorController;
+
+    private void Start()
     {
-       
+        audioSource = GetComponent<AudioSource>();
+    }
+    void Awake ()
+    {
+       animatorController = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,12 +60,44 @@ public class PlayerController : MonoBehaviour
             facingRight = true;
         }
 
-
+//Disparo
         if(Input.GetAxisRaw("Fire1") > 0 && Time.time > cooldownTimer) //Si recibe input de disparo y el cooldown ya no esta
         {
             Shoot();
         }
+        
 
+
+//Animaciones
+
+         if(Input.GetKeyDown(KeyCode.D))
+            {
+                animatorController.SetBool("IsRunning", true);
+            }
+        if (Input.GetKeyUp(KeyCode.D))
+            {
+                animatorController.SetBool("IsRunning", false);
+            }
+
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                animatorController.SetBool("IsRunning", true);
+            }
+        if (Input.GetKeyUp(KeyCode.A))
+            {
+                animatorController.SetBool("IsRunning", false);
+            }
+
+            
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("EnemyBullet"))
+            {
+                audioSource.Play();
+                animatorController.SetTrigger("TakeDamage");
+            }
     }
 
     void Shoot() //Instancia una bala
@@ -60,6 +105,7 @@ public class PlayerController : MonoBehaviour
         Instantiate(bullet, transform.position + offset, transform.rotation);
         //shootingSound.Play();
         cooldownTimer += cooldown;
+        //ammo--;
     }
 
     void Flip() //Solo flippea al personaje

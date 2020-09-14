@@ -25,23 +25,37 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private AudioSource deathSound = null;
     [SerializeField] private AudioSource damageSound = null;*/
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Animator animatorController;
+    
+
+    private void Start()
     {
-        
+      
+       
+    }
+    void Awake()
+    {
+       animatorController = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (canAttack && Time.time > cooldownTimer)
+        {
             Shoot();
+            
+        }
     }
 
     void Shoot()
     {
+        
+        animatorController.SetTrigger("IsShooting");
         Instantiate(bullet, transform.position + offset, transform.rotation);
         //shootingSound.Play();
         cooldownTimer += cooldown;
+        
+        
     }
 }
