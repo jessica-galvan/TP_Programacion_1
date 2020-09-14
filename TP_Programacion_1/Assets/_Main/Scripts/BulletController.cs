@@ -21,9 +21,10 @@ public class BulletController : MonoBehaviour
         {
             //si tiene un life controller, usale el metodo de TakeDamage. 
             life.TakeDamage(damage);
+            Destroy(gameObject);
         }
 
         //Independientemente de si es un item con LifeController, si chocas con algo, destruite. 
-        Destroy(gameObject);
+        //Destroy(gameObject); //Esto causa problemas porque detecta el DectectionArea del enemigo como un collision. 
     }
 }
