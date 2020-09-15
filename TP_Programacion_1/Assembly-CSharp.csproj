@@ -65,8 +65,10 @@
   <ItemGroup>
     <Compile Include="Assets\_Main\Scripts\AutoDestroy.cs" />
     <Compile Include="Assets\_Main\Scripts\BulletController.cs" />
+    <Compile Include="Assets\_Main\Scripts\DeathController.cs" />
     <Compile Include="Assets\_Main\Scripts\DetectionArea.cs" />
     <Compile Include="Assets\_Main\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\_Main\Scripts\HealUp.cs" />
     <Compile Include="Assets\_Main\Scripts\InstantDeath.cs" />
     <Compile Include="Assets\_Main\Scripts\LifeController.cs" />
     <Compile Include="Assets\_Main\Scripts\PlayerController.cs" />
