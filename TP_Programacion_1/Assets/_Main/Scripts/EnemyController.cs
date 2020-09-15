@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     public bool canAttack = false;
 
     [Header("Prefabs Settings")]
-    //[SerializeField] private GameObject Player = null; /* Si quiero que el enemigo siga al player... */
+    //[SerializeField] private GameObject Player = null; 
     [SerializeField] private GameObject bullet = null;
 
     [Header("Audio Sources")]
@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
        animatorController = GetComponent<Animator>();
+
     }
 
     void Update()

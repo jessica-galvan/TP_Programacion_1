@@ -6,13 +6,15 @@ using UnityEngine;
 public class HealUp : MonoBehaviour
 {
     [SerializeField] private int heal= 0;
-    [SerializeField] private AudioSource healSound = null;
-    [SerializeField] private float timer;
-    [SerializeField] private  bool canDestroy = false;
+    [SerializeField] private float timer = 1;
+    private  bool canDestroy = false;
+    private Animator animatorController;
+    private AudioSource healSound = null;
 
     private void Start()
     {
         healSound = GetComponent<AudioSource>();
+        animatorController = GetComponent<Animator>();
     }
 
     private void Update()
@@ -27,10 +29,10 @@ public class HealUp : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            animatorController.SetBool("Dissapear", true);
+            healSound.Play();
             LifeController life = collision.GetComponent<LifeController>();
             life.TakeHeal(heal);
-            healSound.Play();
-            gameObject.GetComponent<Renderer>().enabled = true;
             canDestroy = true;
             timer += Time.time;
         }

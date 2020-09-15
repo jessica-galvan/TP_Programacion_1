@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
             }
     }
 
-    void Shoot() //Instancia una bala
+    private void Shoot() //Instancia una bala
     {
         Instantiate(bullet, transform.position + offset, transform.rotation);
         shootingSound.Play();
@@ -94,7 +95,7 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    void RechargeAmmo()
+    private void RechargeAmmo()
     {
         currentAmmo = maxAmmo;
         rechargeAmmoSound.Play();
