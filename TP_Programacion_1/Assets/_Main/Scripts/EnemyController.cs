@@ -8,12 +8,14 @@ public class EnemyController : MonoBehaviour
     public LifeController lifeController = null;
     private Animator animatorController;
 
-    [Header("Movement Settings")]
+    [Header("Attack Settings")]
     //[SerializeField] private float speed = 0f;
     [SerializeField] private Vector3 offset = Vector3.zero;
     [SerializeField] private float cooldown = 0f;
     private float cooldownTimer = 0f;
     public bool canAttack = false;
+    private bool canShoot = true;
+
 
     [Header("Prefabs Settings")]
     //[SerializeField] private GameObject Player = null; 
@@ -31,8 +33,9 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if (canAttack && Time.time > cooldownTimer)
+        if (canAttack && Time.time > cooldownTimer && canShoot)
         {
+            canShoot = false;
             Shoot();
         }
     }
@@ -43,5 +46,6 @@ public class EnemyController : MonoBehaviour
         animatorController.SetTrigger("IsShooting");
         Instantiate(bullet, transform.position + offset, transform.rotation);
         cooldownTimer += cooldown;
+        canShoot = true;
     }
 }

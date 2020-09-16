@@ -10,11 +10,14 @@ public class HealUp : MonoBehaviour
     private  bool canDestroy = false;
     private Animator animatorController;
     private AudioSource healSound = null;
+    private SpriteRenderer sprite;
 
     private void Start()
     {
         healSound = GetComponent<AudioSource>();
         animatorController = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+
     }
 
     private void Update()
@@ -29,7 +32,9 @@ public class HealUp : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            animatorController.SetBool("Dissapear", true);
+            //animatorController.SetBool("Dissapear", true);
+            sprite.enabled = false;
+            animatorController.enabled = false;
             healSound.Play();
             LifeController life = collision.GetComponent<LifeController>();
             life.TakeHeal(heal);
