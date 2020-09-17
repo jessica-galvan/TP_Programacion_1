@@ -97,7 +97,14 @@ public class PlayerController : MonoBehaviour
 
     private void RechargeAmmo()
     {
+        if (currentAmmo < maxAmmo)
+        {
         currentAmmo = maxAmmo;
         rechargeAmmoSound.Play();
+        }
+        else
+        {
+            negativeActionSound.Play();
+        }
     }
 }

@@ -99,9 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heal: 5
-  healSound: {fileID: 0}
-  timer: 2
-  canDestroy: 0
+  timer: 1
 --- !u!95 &2880811193119697413
 Animator:
   serializedVersion: 3

@@ -422,7 +422,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b3016411f94144a349c07c7d6c4f3fbe, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7a36f3dd55fa646d1bf44ca02fc73842, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -634,12 +634,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d646ed565d16f46bf0aec53454b081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 15
+  maxLife: 25
   currentLife: 0
   damageSound: {fileID: 509123785}
-  death: {fileID: 0}
-  playerDeath: {fileID: 1753471898871332028, guid: 7a84e662b58b0db4eadb2152a945d9d6,
-    type: 3}
+  death: {fileID: 1753471898871332028, guid: 7a84e662b58b0db4eadb2152a945d9d6, type: 3}
 --- !u!61 &435619329345401613
 BoxCollider2D:
   m_ObjectHideFlags: 0

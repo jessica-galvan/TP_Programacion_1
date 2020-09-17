@@ -40,7 +40,7 @@ public class LifeController : MonoBehaviour
         if (currentLife < maxLife)
         {
             currentLife += heal;
-            if(currentLife < maxLife)
+            if(currentLife > maxLife)
             {
                 currentLife = maxLife;
             }

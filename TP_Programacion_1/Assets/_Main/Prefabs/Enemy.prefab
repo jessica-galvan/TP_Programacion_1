@@ -168,7 +168,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 15faccb8f5420432fa284037f4bf1faa, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e34e5de4fb6f0405987dc922e27778b9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -485,8 +485,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLife: 15
   currentLife: 0
-  deathSound: {fileID: 523633856}
   damageSound: {fileID: 1015961869}
+  death: {fileID: 1753471898871332028, guid: e1c825100e5258b49a22724f249c5bad, type: 3}
 --- !u!114 &4142080222102873625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +502,7 @@ MonoBehaviour:
   lifeController: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   cooldown: 3
+  bodyDamage: 5
   canAttack: 0
   bullet: {fileID: 3762357391963882051, guid: c5e6a2ebe9975454598f61b2ecf794cd, type: 3}
   shootingSound: {fileID: 1690012529}
