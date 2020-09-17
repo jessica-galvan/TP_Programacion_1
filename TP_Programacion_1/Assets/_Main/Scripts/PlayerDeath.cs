@@ -9,12 +9,14 @@ public class PlayerDeath : MonoBehaviour
 
     void Start()
     {
+        //Esto ejecuta el sonido de muerte apenas se instacia y setea el timer. Además, en la pantalla se ve la animación de muerte. 
         deathSound.Play();
         timer += Time.time;
     }
 
     void Update()
     {
+        //Cuando pasa el tiempo, el personaje muere. 
         if (Time.time > timer)
         {
             Destroy(gameObject);

@@ -17,7 +17,6 @@ public class HealUp : MonoBehaviour
         healSound = GetComponent<AudioSource>();
         animatorController = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-
     }
 
     private void Update()
@@ -30,16 +29,22 @@ public class HealUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Si el item que collisiona tiene un tag de player...
         if (collision.tag == "Player")
         {
-            //animatorController.SetBool("Dissapear", true);
-            sprite.enabled = false;
-            animatorController.enabled = false;
-            healSound.Play();
+            //Si tiene un life controller (deberia tenerlo)
             LifeController life = collision.GetComponent<LifeController>();
-            life.TakeHeal(heal);
-            canDestroy = true;
-            timer += Time.time;
+            if(life != null)
+            {
+                //Desactivame el animator y el sprite renderer. Además toca el sonido.
+                sprite.enabled = false;
+                animatorController.enabled = false;
+                healSound.Play();
+                //Cura al jugador, cambia la variable de destruiye y setear el timer. 
+                life.TakeHeal(heal);
+                canDestroy = true;
+                timer += Time.time;
+            }
         }
     }
 }

@@ -12,11 +12,11 @@ public class EnemyController : MonoBehaviour
     //[SerializeField] private float speed = 0f;
     [SerializeField] private Vector3 offset = Vector3.zero;
     [SerializeField] private float cooldown = 0f;
+    [SerializeField] private int bodyDamage = 5;
     private float cooldownTimer = 0f;
     public bool canAttack = false;
     private bool canShoot = true;
-
-
+    
     [Header("Prefabs Settings")]
     //[SerializeField] private GameObject Player = null; 
     [SerializeField] private GameObject bullet = null;
@@ -24,11 +24,9 @@ public class EnemyController : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
 
-
     void Start()
     {
        animatorController = GetComponent<Animator>();
-
     }
 
     void Update()
@@ -47,5 +45,14 @@ public class EnemyController : MonoBehaviour
         Instantiate(bullet, transform.position + offset, transform.rotation);
         cooldownTimer += cooldown;
         canShoot = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        LifeController life = collision.gameObject.GetComponent<LifeController>();
+        if (life != null)
+        {
+            life.TakeDamage(bodyDamage);
+        }
     }
 }

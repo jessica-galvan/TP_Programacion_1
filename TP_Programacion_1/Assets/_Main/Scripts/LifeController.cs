@@ -9,13 +9,11 @@ public class LifeController : MonoBehaviour
     [SerializeField] private int currentLife = 0;
     private bool isDead = false;
 
-
     [Header("Audio Sources")]
     [SerializeField] private AudioSource damageSound = null;
 
     [Header("Death")]
     [SerializeField] private GameObject death = null;
-    [SerializeField] private GameObject playerDeath = null;
 
     void Start()
     {
@@ -30,6 +28,7 @@ public class LifeController : MonoBehaviour
             damageSound.Play();
         }
 
+        //isDead es para que no siga ejecutando la muerte si su vida es menor o igual a 0 y aun asi sigue en escena. Al final, con la instanciación de muerte ya esta. 
         if (currentLife <= 0 && !isDead)
         {
             Die();
@@ -51,15 +50,7 @@ public class LifeController : MonoBehaviour
     public void Die()
     {
         isDead = true;
-        if (gameObject.CompareTag("Player"))
-        {
-            Instantiate(playerDeath, transform.position, transform.rotation);
-            Destroy(gameObject);
-
-        } else 
-        {
-            Instantiate(death, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
+        Instantiate(death, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

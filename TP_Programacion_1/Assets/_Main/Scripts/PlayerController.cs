@@ -51,14 +51,14 @@ public class PlayerController : MonoBehaviour
         }
 
         //Disparo
-        if(Input.GetMouseButtonDown(0) && Time.time > cooldownTimer && currentAmmo > 0) //Si recibe input de disparo y el cooldown ya no esta
+        if(Input.GetMouseButtonDown(0) && Time.time > cooldownTimer && currentAmmo > 0) //Si recibe input de disparo y el cooldown ya no esta y además hay ammo...
         {
             Shoot();
         } else if(Input.GetMouseButtonDown(0) && Time.time > cooldownTimer || Input.GetMouseButtonDown(0) && currentAmmo > 0)
         {
            negativeActionSound.Play();
         }
-        //Input.GetMouseButtonDown(0) -> para el mouse. 
+
         //RecargarAmmo
         if (Input.GetKeyDown(KeyCode.E))
         {

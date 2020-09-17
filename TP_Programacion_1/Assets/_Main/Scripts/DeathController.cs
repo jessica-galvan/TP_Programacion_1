@@ -23,14 +23,17 @@ public class DeathController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Primer timer, para instanciar luego de la animacion de muerte, la reward.
         if(Time.time > timer1)
         {
+            //el control es para que no instancie eternamente. Apenas entra, cambia a false, para frenarlo. Sin esto, lo hace hasta que se destruye el objeto. 
             if(canInstantiate)
             {
                 canInstantiate = false;
                 Instantiate(reward, transform.position, transform.rotation);
                 rewardSound.Play();
             }
+            //Mientras tanto, hay un control del segundo timer, asi el objeto se destruye también. 
             if (Time.time > timer2)
             {
                 Destroy(gameObject);
