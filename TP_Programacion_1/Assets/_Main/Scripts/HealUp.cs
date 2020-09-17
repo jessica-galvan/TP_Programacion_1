@@ -11,6 +11,7 @@ public class HealUp : MonoBehaviour
     private Animator animatorController;
     private AudioSource healSound = null;
     private SpriteRenderer sprite;
+    private bool canHeal = true;
 
     private void Start()
     {
@@ -34,8 +35,10 @@ public class HealUp : MonoBehaviour
         {
             //Si tiene un life controller (deberia tenerlo)
             LifeController life = collision.GetComponent<LifeController>();
-            if(life != null)
+            if(life != null & canHeal)
             {
+                //Solo deberia curar una vez. 
+                canHeal = false;
                 //Desactivame el animator y el sprite renderer. Además toca el sonido.
                 sprite.enabled = false;
                 animatorController.enabled = false;
