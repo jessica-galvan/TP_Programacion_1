@@ -15,13 +15,12 @@ public class Parallax : MonoBehaviour
         {
             cameraTransform = Camera.main.transform;
             lastCameraPosition = cameraTransform.position;
-            //cameraTransform.position es donde esta la camara
             spriteRenderer = GetComponent<SpriteRenderer>();
             width = spriteRenderer.bounds.size.x;
             //bounds son los limites que tiene el sprite renderer
             
         }
-        private void FixedUpdate()
+        private void Update()
         {
             Vector3 deltaMovement = cameraTransform.position - lastCameraPosition;
             transform.position += new Vector3(deltaMovement.x * parallaxEffectMultiplier,0f,0f);
