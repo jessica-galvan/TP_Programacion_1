@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cooldown = 0f;
     private float cooldownTimer = 0f;
     [SerializeField] private GameObject bullet = null;
+    [SerializeField] private GameObject rButton;
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
@@ -60,9 +61,18 @@ public class PlayerController : MonoBehaviour
         }
 
         //RecargarAmmo
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             RechargeAmmo();
+        }
+
+        if(currentAmmo == 0)
+        {
+            rButton.active = true;
+        }
+        else
+        {
+            rButton.active = false;
         }
 
         //Animaciones
