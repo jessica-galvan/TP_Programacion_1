@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
     [Header("Prefabs Settings")]
     //[SerializeField] private GameObject Player = null; 
     [SerializeField] private GameObject bullet = null;
+    [SerializeField] private GameManager gameManager = null;
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
@@ -31,6 +32,7 @@ public class EnemyController : MonoBehaviour
         lifeController = GetComponent<LifeController>();
         lifeController.OnTakeDamage += OnTakeDamageListener;
         lifeController.OnDie.AddListener(OnDieListener);
+        gameManager.addOneInEnemyCounter();
     }
 
     void Update()
@@ -58,7 +60,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnDieListener()
     {
-
+        gameManager.takeOneEnemy();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

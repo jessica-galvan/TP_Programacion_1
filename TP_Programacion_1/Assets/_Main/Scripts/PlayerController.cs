@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
        currentAmmo = maxAmmo;
        lifeController.OnDie.AddListener(OnDieListener);
        lifeController.OnTakeDamage += OnTakeDamageListener;
+       //DontDestroyOnLoad(gameObject); //Si queremos que player al cambiar de nivel no se destruya, parte del tema seria este codigo
     }
 
     void Update()
@@ -74,13 +75,8 @@ public class PlayerController : MonoBehaviour
         rButton.SetActive(currentAmmo == 0);
 
         //Animaciones
-        if (movement != 0)
-        {
-            animatorController.SetBool("IsRunning", true);
-        } else
-        {
-            animatorController.SetBool("IsRunning", false);
-        }
+        animatorController.SetBool("IsRunning", movement != 0);
+
     }
 
 
