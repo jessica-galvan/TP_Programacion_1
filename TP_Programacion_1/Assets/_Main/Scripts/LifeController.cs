@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LifeController : MonoBehaviour
 {
@@ -9,11 +11,12 @@ public class LifeController : MonoBehaviour
     [SerializeField] private int currentLife = 0;
     private bool isDead = false;
 
-    [Header("Audio Sources")]
-    [SerializeField] private AudioSource damageSound = null;
-
     [Header("Death")]
     [SerializeField] private GameObject death = null;
+
+    //LISTENERS
+    public UnityEvent OnDie = new UnityEvent();
+    public Action<int, int> OnTakeDamage; 
 
     void Start()
     {
@@ -25,7 +28,7 @@ public class LifeController : MonoBehaviour
         if(currentLife > 0)
         {
             currentLife -= damage;
-            damageSound.Play();
+            OnTakeDamage.Invoke(currentLife, damage);
         }
 
         //isDead es para que no siga ejecutando la muerte si su vida es menor o igual a 0 y aun asi sigue en escena. Al final, con la instanciación de muerte ya esta. 
@@ -50,6 +53,7 @@ public class LifeController : MonoBehaviour
     public void Die()
     {
         isDead = true;
+        OnDie.Invoke();
         Instantiate(death, transform.position, transform.rotation);
         Destroy(gameObject);
     }

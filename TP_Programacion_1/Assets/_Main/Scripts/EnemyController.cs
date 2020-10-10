@@ -23,10 +23,14 @@ public class EnemyController : MonoBehaviour
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
+    [SerializeField] private AudioSource damageSound = null;
 
     void Start()
     {
-       animatorController = GetComponent<Animator>();
+        animatorController = GetComponent<Animator>();
+        lifeController = GetComponent<LifeController>();
+        lifeController.OnTakeDamage += OnTakeDamageListener;
+        lifeController.OnDie.AddListener(OnDieListener);
     }
 
     void Update()
@@ -45,6 +49,16 @@ public class EnemyController : MonoBehaviour
         Instantiate(bullet, transform.position + offset, transform.rotation);
         cooldownTimer += cooldown;
         canShoot = true;
+    }
+
+    private void OnTakeDamageListener(int currentLife, int damage)
+    {
+        damageSound.Play();
+    }
+
+    private void OnDieListener()
+    {
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

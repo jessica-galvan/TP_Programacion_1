@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Health Settings")]
     public LifeController lifeController = null;
-    private Animator animatorController;
+    private Animator animatorController = null;
 
     [Header("Movement Settings")]
     [SerializeField] private float speed = 0f;
@@ -22,17 +22,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cooldown = 0f;
     private float cooldownTimer = 0f;
     [SerializeField] private GameObject bullet = null;
-    [SerializeField] private GameObject rButton;
+    [SerializeField] private GameObject rButton = null;
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
     [SerializeField] private AudioSource rechargeAmmoSound = null;
     [SerializeField] private AudioSource negativeActionSound = null;
+    [SerializeField] private AudioSource damageSound = null;
 
     void Start ()
     {
        animatorController = GetComponent<Animator>();
+       lifeController = GetComponent<LifeController>();
        currentAmmo = maxAmmo;
+       lifeController.OnDie.AddListener(OnDieListener);
+       lifeController.OnTakeDamage += OnTakeDamageListener;
     }
 
     void Update()
@@ -66,17 +70,11 @@ public class PlayerController : MonoBehaviour
             RechargeAmmo();
         }
 
-        if(currentAmmo == 0)
-        {
-            rButton.active = true;
-        }
-        else
-        {
-            rButton.active = false;
-        }
+        //Activa una imagne visiuald e un boton para que el usuario sepa que apretar para recargar las balas. 
+        rButton.SetActive(currentAmmo == 0);
 
         //Animaciones
-        if(movement != 0)
+        if (movement != 0)
         {
             animatorController.SetBool("IsRunning", true);
         } else
@@ -84,13 +82,7 @@ public class PlayerController : MonoBehaviour
             animatorController.SetBool("IsRunning", false);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("EnemyBullet"))
-            {
-                animatorController.SetTrigger("TakeDamage");
-            }
-    }
+
 
     private void Shoot() //Instancia una bala
     {
@@ -109,12 +101,23 @@ public class PlayerController : MonoBehaviour
     {
         if (currentAmmo < maxAmmo)
         {
-        currentAmmo = maxAmmo;
-        rechargeAmmoSound.Play();
+            currentAmmo = maxAmmo;
+            rechargeAmmoSound.Play();
         }
         else
         {
             negativeActionSound.Play();
         }
+    }
+
+    private void OnDieListener()
+    {
+
+    }
+
+    private void OnTakeDamageListener(int currentLife, int damage)
+    {
+        animatorController.SetTrigger("TakeDamage");
+        damageSound.Play();
     }
 }

@@ -41,7 +41,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4a4a86cfb191b4dcb9489041229fb787, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d748e3e2327d44018b288b6c2ba6adf4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -295,7 +295,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b3016411f94144a349c07c7d6c4f3fbe, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f31dc225a1e464253acf1ca679f008bd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -487,6 +487,9 @@ MonoBehaviour:
   currentLife: 0
   damageSound: {fileID: 1015961869}
   death: {fileID: 1753471898871332028, guid: e1c825100e5258b49a22724f249c5bad, type: 3}
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4142080222102873625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +509,7 @@ MonoBehaviour:
   canAttack: 0
   bullet: {fileID: 3762357391963882051, guid: c5e6a2ebe9975454598f61b2ecf794cd, type: 3}
   shootingSound: {fileID: 1690012529}
+  damageSound: {fileID: 1015961869}
 --- !u!61 &4142080222102873627
 BoxCollider2D:
   m_ObjectHideFlags: 0
