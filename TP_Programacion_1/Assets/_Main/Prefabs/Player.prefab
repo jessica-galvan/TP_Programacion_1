@@ -716,6 +716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeController: {fileID: 435619329345401614}
   speed: 5
+  jumpForce: 5
   offset: {x: 0, y: 0, z: 0}
   maxAmmo: 6
   currentAmmo: 0
@@ -740,11 +741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLife: 25
   currentLife: 0
-  damageSound: {fileID: 509123785}
   death: {fileID: 1753471898871332028, guid: 7a84e662b58b0db4eadb2152a945d9d6, type: 3}
-  OnGetDamage:
-    m_PersistentCalls:
-      m_Calls: []
   OnDie:
     m_PersistentCalls:
       m_Calls: []
@@ -794,7 +791,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &7652045641934578925
 Animator:
   serializedVersion: 3

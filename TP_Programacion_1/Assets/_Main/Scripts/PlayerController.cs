@@ -12,9 +12,12 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField] private float speed = 0f;
+    [SerializeField] private float jumpForce;
     [SerializeField] private Vector3 offset = Vector3.zero;
     private float movement = 0f;
     private bool facingRight = true; //facingRight es para chequear en que sentido esta mirando el personaje. 
+    private Rigidbody2D myRigidbody;
+    private bool isGrounded;
 
     [Header("Attack Settings")]
     [SerializeField] private int maxAmmo = 6;
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     void Start ()
     {
+        myRigidbody = GetComponent<Rigidbody2D>();
        animatorController = GetComponent<Animator>();
        lifeController = GetComponent<LifeController>();
        currentAmmo = maxAmmo;
@@ -42,6 +46,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //JUMP
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            isGrounded = false;
+            myRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
         //MOVEMENT
         movement = Input.GetAxisRaw("Horizontal") * (speed * Time.deltaTime); //El valor va entre -1 (izquierda) y 1 (derecha). 
         transform.Translate(Mathf.Abs(movement), 0,0); //El Mathf.Abs -> Math Absolute le saca los signos. Esto sirve porque al flippear el personaje siempre se mueve hacia adelante y el Flip me lo rota. 
@@ -115,5 +125,13 @@ public class PlayerController : MonoBehaviour
     {
         animatorController.SetTrigger("TakeDamage");
         damageSound.Play();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) 
+    {
+     if(collision.gameObject.CompareTag("Ground"))
+     {
+         isGrounded = true;
+     }   
     }
 }
