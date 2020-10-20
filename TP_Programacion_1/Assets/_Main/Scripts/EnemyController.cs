@@ -16,9 +16,10 @@ public class EnemyController : MonoBehaviour
     private float cooldownTimer = 0f;
     public bool canAttack = false;
     private bool canShoot = true;
+    private bool facingRight = false;
     
     [Header("Prefabs Settings")]
-    //[SerializeField] private GameObject Player = null; 
+    [SerializeField] private GameObject player = null; 
     [SerializeField] private GameObject bullet = null;
     [SerializeField] private GameManager gameManager = null;
 
@@ -37,14 +38,31 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if (canAttack && Time.time > cooldownTimer && canShoot)
+        if (canAttack) //Si el enemigo puede atacar es porque el player esta dentro de al trigger zone
         {
-            canShoot = false;
-            Shoot();
+            if(player.transform.position.x > transform.position.x && !facingRight) //estoy a la derecha
+            {
+                Flip();
+            } else if(player.transform.position.x < transform.position.x && facingRight) //estoy a la izquierda
+            {
+                Flip();
+            }
+
+            if (Time.time > cooldownTimer && canShoot) //cooldown y que ataque
+            {
+                canShoot = false;
+                Shoot();
+            }
         }
     }
 
-    void Shoot()
+    private void Flip()
+    {
+        transform.Rotate(0f, 180f, 0f);
+        facingRight = !facingRight;
+    }
+
+    private void Shoot()
     {
         shootingSound.Play();
         animatorController.SetTrigger("IsShooting");

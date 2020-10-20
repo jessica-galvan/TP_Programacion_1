@@ -59,11 +59,9 @@ public class PlayerController : MonoBehaviour
         if(movement < 0 && facingRight) //Si el movimiento es positivo y esta mirando a la derecha...
         {
             Flip();
-            facingRight = false;
         } else if(movement > 0 && !facingRight ) //Si el movimiento es negativo y no esta mirando a la derecha...
         {
             Flip();
-            facingRight = true;
         }
 
         //Disparo
@@ -101,6 +99,7 @@ public class PlayerController : MonoBehaviour
     void Flip() //Solo flippea al personaje
     {
         transform.Rotate(0f, 180f, 0f);
+        facingRight = !facingRight;
     }
 
     private void RechargeAmmo()

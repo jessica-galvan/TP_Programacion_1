@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523633854}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 3.56, y: 0.092999935, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4142080222102873623}
@@ -152,7 +152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015961867}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 2.62, y: 2.3429997, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4142080222102873623}
@@ -279,7 +279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690012527}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 3.56, y: 0.092999935, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4142080222102873623}
@@ -485,7 +485,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLife: 15
   currentLife: 0
-  damageSound: {fileID: 1015961869}
   death: {fileID: 1753471898871332028, guid: e1c825100e5258b49a22724f249c5bad, type: 3}
   OnDie:
     m_PersistentCalls:
@@ -507,7 +506,9 @@ MonoBehaviour:
   cooldown: 3
   bodyDamage: 5
   canAttack: 0
+  player: {fileID: 0}
   bullet: {fileID: 3762357391963882051, guid: c5e6a2ebe9975454598f61b2ecf794cd, type: 3}
+  gameManager: {fileID: 0}
   shootingSound: {fileID: 1690012529}
   damageSound: {fileID: 1015961869}
 --- !u!61 &4142080222102873627
