@@ -33,6 +33,8 @@ public class EnemyController : MonoBehaviour
         lifeController = GetComponent<LifeController>();
         lifeController.OnTakeDamage += OnTakeDamageListener;
         lifeController.OnDie.AddListener(OnDieListener);
+        player = GameObject.Find("Player");
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameManager.addOneInEnemyCounter();
     }
 
