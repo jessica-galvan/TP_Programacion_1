@@ -6,26 +6,47 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject player;
-    [SerializeField] private List<EnemyController> enemies;
+    //[SerializeField] private List<EnemyController> enemies;
+    [SerializeField] private List<GameObject> enemies = new List<GameObject>();
     [SerializeField] private List<EnemyStaticController> staticEnemies;
     //[SerializeField] private List<EnemyPatrolController> patrolEnemies;
     [SerializeField] private int enemyCounter;
+    //[SerializeField] private EnemyController [] enemiesController;
 
-    void Start()
+    void Awake()
     {
-        foreach (var enemy in enemies)
+        //Para saber cuantos hijos (enemigos) hay. Y Agregamos la info al GameManager
+        foreach (var item in this.transform)
         {
-            enemy.SetPlayer(player);
-            enemy.SetGameManager(gameManager);
             enemyCounter++;
+            gameManager.addOneInEnemyCounter();
         }
 
-        if(staticEnemies != null)
+        //y acá los agregamos a la lista
+        for (int i = 0; i < enemyCounter; i++)
         {
-            foreach (var staticEnemy in staticEnemies)
+            enemies.Add(transform.GetChild(i).gameObject);
+        }
+
+        //acá se setea el game manager y player para cada item
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            EnemyController enemyController = enemies[i].GetComponent<EnemyController>();
+            enemyController.SetPlayer(player);
+            enemyController.SetGameManager(gameManager);
+
+            EnemyStaticController enemyStatic = enemies[i].GetComponent<EnemyStaticController>();
+            if(enemyStatic != null)
             {
-                staticEnemy.SetPlayer(player);
+                enemyStatic.SetPlayer(player);
             }
+
+            //Esto es para cuando este el coso de enemy Patrol hecho
+            /*EnemyPatrolController enemyPatrol = enemies[i].GetComponent<EnemyPatrolController>();
+            if(enemyPatrol != null)
+            {
+                enemyPatrol.SetPlayer(player);
+            }*/
         }
     }
 

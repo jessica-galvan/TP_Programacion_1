@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
         //player = GameObject.Find("Player").GetComponent<PlayerController>();
         //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         //gameManager.addOneInEnemyCounter();
+        //Debug.Log(player);
     }
 
     void Update()

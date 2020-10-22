@@ -393,8 +393,8 @@ GameObject:
   - component: {fileID: 4142080222102873624}
   - component: {fileID: 4142080222102873626}
   - component: {fileID: 4142080222102873625}
-  - component: {fileID: 4142080222102873627}
   - component: {fileID: -6455767593669220362}
+  - component: {fileID: 4142080222102873627}
   - component: {fileID: 4131700202841169333}
   m_Layer: 9
   m_Name: Enemy
@@ -510,6 +510,22 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   shootingSound: {fileID: 1690012529}
   damageSound: {fileID: 1015961869}
+--- !u!114 &-6455767593669220362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4142080222102873628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 825d38af93cd3d64ca6ad43f2b9408e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  cooldown: 2
+  bullet: {fileID: 3762357391963882051, guid: c5e6a2ebe9975454598f61b2ecf794cd, type: 3}
+  shootingSound: {fileID: 1690012529}
 --- !u!61 &4142080222102873627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -536,22 +552,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5240867, y: 0.65289545}
   m_EdgeRadius: 0
---- !u!114 &-6455767593669220362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4142080222102873628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 825d38af93cd3d64ca6ad43f2b9408e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
-  cooldown: 0.5
-  bullet: {fileID: 3762357391963882051, guid: c5e6a2ebe9975454598f61b2ecf794cd, type: 3}
-  shootingSound: {fileID: 1690012529}
 --- !u!95 &4131700202841169333
 Animator:
   serializedVersion: 3

@@ -8,7 +8,7 @@ public class EnemyStaticController : MonoBehaviour
 
     [Header("Attack Settings")]
     [SerializeField] private Vector3 offset = Vector3.zero;
-    [SerializeField] private float cooldown = 0f;
+    [SerializeField] private float cooldown = 2f;
     private float cooldownTimer = 0f;
     private bool canShoot = true;
 
@@ -21,12 +21,10 @@ public class EnemyStaticController : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
 
-    void Awake()
+    void Start()
     {
         animatorController = GetComponent<Animator>();
         enemyController = GetComponent<EnemyController>();
-        //player = enemyController.GetPlayer();
-        player = GameObject.Find("Player");
     }
 
     void Update()
