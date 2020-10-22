@@ -68,7 +68,9 @@
     <Compile Include="Assets\_Main\Scripts\DeathController.cs" />
     <Compile Include="Assets\_Main\Scripts\DetectionArea.cs" />
     <Compile Include="Assets\_Main\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\_Main\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\_Main\Scripts\EnemyPatrolController.cs" />
+    <Compile Include="Assets\_Main\Scripts\EnemyStaticController.cs" />
     <Compile Include="Assets\_Main\Scripts\GameManager.cs" />
     <Compile Include="Assets\_Main\Scripts\HealUp.cs" />
     <Compile Include="Assets\_Main\Scripts\InstantDeath.cs" />

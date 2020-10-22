@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     void Start ()
     {
-        myRigidbody = GetComponent<Rigidbody2D>();
+       myRigidbody = GetComponent<Rigidbody2D>();
        animatorController = GetComponent<Animator>();
        lifeController = GetComponent<LifeController>();
        currentAmmo = maxAmmo;
