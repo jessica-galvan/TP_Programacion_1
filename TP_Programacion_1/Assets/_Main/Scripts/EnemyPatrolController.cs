@@ -10,8 +10,10 @@ public class EnemyPatrolController : MonoBehaviour
     [SerializeField] private Transform minX;
     [SerializeField] private LayerMask groundDetectionList;
     [SerializeField] private float groundDetectionDistance = 1f;
-    private float minDistance;
-    private float maxDistance;
+    //private float minDistance;
+    //private float maxDistance;
+    private Vector2 minDistance;
+    private Vector2 maxDistance;
 
     [Header("Prefab Settings")]
     [SerializeField] private GameObject player;
@@ -40,6 +42,7 @@ public class EnemyPatrolController : MonoBehaviour
     private bool facingRight;
     private bool canMove;
     private float moveTimer = 0f;
+    private bool canFlip = true;
 
 
     void Start()
@@ -49,20 +52,30 @@ public class EnemyPatrolController : MonoBehaviour
         //enemyController = GetComponent<EnemyController>();
         canMove = true;
         canAttack = true;
-        minDistance = minX.position.x;
-        maxDistance = maxX.position.x;
+        minDistance = minX.position;
+        maxDistance = maxX.position;
         playerDetectionDistance = Mathf.Abs(detectionPoint.position.x);
     }
 
     void Update()
     {
         //Simple PatrolArea CODE
-        /*if(transform.position.x >= maxDistance)
+
+        //if(transform.position.x >= maxDistance)/
+        float difMax = Vector2.Distance(transform.position, maxDistance);
+        if(difMax <= 1f && canFlip)
         {
+            canFlip = false;
+            Debug.Log("HEY");
             BackFlip();
         }
-        if (transform.position.x <= minDistance)
+
+        float difMin = Vector2.Distance(transform.position, minDistance);
+        //if (transform.position.x <= minDistance)
+        if(difMin <= 1f && canFlip)
         {
+            canFlip = false;
+            Debug.Log("NOO");
             BackFlip();
         }
 
@@ -71,11 +84,11 @@ public class EnemyPatrolController : MonoBehaviour
         if (!hitPatrol)
         {
             BackFlip();
-        }*/
+        }
 
         Vector2 hitDirection = facingRight ? Vector2.right : -Vector2.right;
         //CUANDO VEAS AL PLAYER, PERSEGUILO
-        RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, hitDirection, playerDetectionDistance, playerDetectionList);
+        /*RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, hitDirection, playerDetectionDistance, playerDetectionList);
         if (hitPlayer)
         {
             //Perseguilo
@@ -85,7 +98,7 @@ public class EnemyPatrolController : MonoBehaviour
             float distance = Vector2.Distance(hitPlayer.collider.transform.position, detectionPoint.position);
             if(distance <= attackRadius && canAttack && Time.time > cooldownTimer)
                 Attack();
-        }
+        }*/
 
         //Termino animación ataque? Se puede mover
         //if (!canMove && Time.time > moveTimer)
@@ -121,6 +134,7 @@ public class EnemyPatrolController : MonoBehaviour
     {
         transform.Rotate(0f, 180f, 0f);
         facingRight = !facingRight;
+        canFlip = true;
     }
 
     public void SetPlayer(GameObject _player)
