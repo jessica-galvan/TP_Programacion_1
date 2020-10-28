@@ -41,12 +41,11 @@ public class EnemyManager : MonoBehaviour
                 enemyStatic.SetPlayer(player);
             }
 
-            //Esto es para cuando este el coso de enemy Patrol hecho
-            /*EnemyPatrolController enemyPatrol = enemies[i].GetComponent<EnemyPatrolController>();
+            EnemyPatrolController enemyPatrol = enemies[i].GetComponent<EnemyPatrolController>();
             if(enemyPatrol != null)
             {
                 enemyPatrol.SetPlayer(player);
-            }*/
+            }
         }
     }
 
