@@ -16,7 +16,8 @@ public class LifeController : MonoBehaviour
 
     //LISTENERS
     public UnityEvent OnDie = new UnityEvent();
-    public Action<int, int> OnTakeDamage; 
+    public UnityEvent OnChangeCurrentLife = new UnityEvent();
+    public Action<int, int> OnTakeDamage;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class LifeController : MonoBehaviour
         {
             currentLife -= damage;
             OnTakeDamage.Invoke(currentLife, damage);
+            OnChangeCurrentLife.Invoke();
         }
 
         //isDead es para que no siga ejecutando la muerte si su vida es menor o igual a 0 y aun asi sigue en escena. Al final, con la instanciación de muerte ya esta. 
@@ -43,10 +45,11 @@ public class LifeController : MonoBehaviour
         if (currentLife < maxLife)
         {
             currentLife += heal;
-            if(currentLife > maxLife)
+            if (currentLife > maxLife)
             {
                 currentLife = maxLife;
             }
+            OnChangeCurrentLife.Invoke();
         } 
     }
 
@@ -56,5 +59,15 @@ public class LifeController : MonoBehaviour
         OnDie.Invoke();
         Instantiate(death, transform.position, transform.rotation);
         Destroy(gameObject);
+    }
+
+    public float GetCurrentLifePercentage()
+    {
+        return (float)currentLife/maxLife;
+    }
+
+    public int GetMaxLife()
+    {
+        return maxLife;
     }
 }

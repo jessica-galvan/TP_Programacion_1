@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
@@ -20,8 +22,8 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
 
     [Header("Attack Settings")]
-    [SerializeField] private int maxAmmo = 6;
-    [SerializeField] private int currentAmmo;
+    [SerializeField] private int maxMana = 6;
+    [SerializeField] private int currentMana;
     [SerializeField] private float cooldown = 0f;
     private float cooldownTimer = 0f;
     [SerializeField] private GameObject bullet = null;
@@ -32,13 +34,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource rechargeAmmoSound = null;
     [SerializeField] private AudioSource negativeActionSound = null;
     [SerializeField] private AudioSource damageSound = null;
+    public UnityEvent OnChangeMana = new UnityEvent();
 
-    void Start ()
+    void Awake()
     {
        myRigidbody = GetComponent<Rigidbody2D>();
        animatorController = GetComponent<Animator>();
        lifeController = GetComponent<LifeController>();
-       currentAmmo = maxAmmo;
+       currentMana = maxMana;
        lifeController.OnDie.AddListener(OnDieListener);
        lifeController.OnTakeDamage += OnTakeDamageListener;
        //DontDestroyOnLoad(gameObject); //Si queremos que player al cambiar de nivel no se destruya, parte del tema seria este codigo
@@ -65,22 +68,22 @@ public class PlayerController : MonoBehaviour
         }
 
         //Disparo
-        if(Input.GetMouseButtonDown(0) && Time.time > cooldownTimer && currentAmmo > 0) //Si recibe input de disparo y el cooldown ya no esta y además hay ammo...
+        if(Input.GetMouseButtonDown(0) && Time.time > cooldownTimer && currentMana > 0) //Si recibe input de disparo y el cooldown ya no esta y además hay ammo...
         {
             Shoot();
-        } else if(Input.GetMouseButtonDown(0) && Time.time > cooldownTimer || Input.GetMouseButtonDown(0) && currentAmmo > 0)
+        } else if(Input.GetMouseButtonDown(0) && Time.time > cooldownTimer || Input.GetMouseButtonDown(0) && currentMana > 0)
         {
            negativeActionSound.Play();
         }
 
-        //RecargarAmmo
+        //RecargarMana -> Solo hasta que se cree el item que recarga Mana
         if (Input.GetKeyDown(KeyCode.R))
         {
-            RechargeAmmo();
+            RechargeMana();
         }
 
         //Activa una imagne visiuald e un boton para que el usuario sepa que apretar para recargar las balas. 
-        rButton.SetActive(currentAmmo == 0);
+        rButton.SetActive(currentMana == 0);
 
         //Animaciones
         animatorController.SetBool("IsRunning", movement != 0);
@@ -93,7 +96,8 @@ public class PlayerController : MonoBehaviour
         Instantiate(bullet, transform.position + offset, transform.rotation);
         shootingSound.Play();
         cooldownTimer += cooldown;
-        currentAmmo--;
+        currentMana--;
+        OnChangeMana.Invoke();
     }
 
     void Flip() //Solo flippea al personaje
@@ -102,11 +106,12 @@ public class PlayerController : MonoBehaviour
         facingRight = !facingRight;
     }
 
-    private void RechargeAmmo()
+    private void RechargeMana()
     {
-        if (currentAmmo < maxAmmo)
+        if (currentMana < maxMana)
         {
-            currentAmmo = maxAmmo;
+            currentMana = maxMana;
+            OnChangeMana.Invoke();
             rechargeAmmoSound.Play();
         }
         else
@@ -133,4 +138,10 @@ public class PlayerController : MonoBehaviour
          isGrounded = true;
      }   
     }
+
+    public float GetManaPercentage()
+    {
+        return (float)currentMana / maxMana;
+    }
 }
+

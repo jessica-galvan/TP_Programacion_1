@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     [Header("Prefabs Settings")]
     [SerializeField] private GameObject player; 
     [SerializeField] private GameManager gameManager = null;
+    [SerializeField] private GameObject canvas = null;
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
@@ -32,7 +33,9 @@ public class EnemyController : MonoBehaviour
     public void BackFlip()
     {
         transform.Rotate(0f, 180f, 0f);
+        canvas.transform.Rotate(0f, 180f, 0f);
         facingRight = !facingRight;
+
     }
 
     private void OnTakeDamageListener(int currentLife, int damage)
