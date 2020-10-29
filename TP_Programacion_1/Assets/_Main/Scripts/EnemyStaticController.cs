@@ -15,6 +15,7 @@ public class EnemyStaticController : MonoBehaviour
     [Header("Prefabs Settings")]
     [SerializeField] private GameObject bullet = null;
     private EnemyController enemyController = null;
+    private GameManager gameManager = null;
     private Animator animatorController = null;
     private GameObject player = null;
 
@@ -29,21 +30,24 @@ public class EnemyStaticController : MonoBehaviour
 
     void Update()
     {
-        if (enemyController.canAttack) //Si el enemigo puede atacar es porque el player esta dentro de al trigger zone
+        if (!gameManager.isFreeze)
         {
-            if (player.transform.position.x > transform.position.x && !enemyController.facingRight) //estoy a la derecha
+            if (enemyController.canAttack) //Si el enemigo puede atacar es porque el player esta dentro de al trigger zone
             {
-                enemyController.BackFlip();
-            }
-            else if (player.transform.position.x < transform.position.x && enemyController.facingRight) //estoy a la izquierda
-            {
-                enemyController.BackFlip();
-            }
+                if (player.transform.position.x > transform.position.x && !enemyController.facingRight) //estoy a la derecha
+                {
+                    enemyController.BackFlip();
+                }
+                else if (player.transform.position.x < transform.position.x && enemyController.facingRight) //estoy a la izquierda
+                {
+                    enemyController.BackFlip();
+                }
 
-            if (Time.time > cooldownTimer && canShoot) //cooldown y que ataque
-            {
-                canShoot = false;
-                Shoot();
+                if (Time.time > cooldownTimer && canShoot) //cooldown y que ataque
+                {
+                    canShoot = false;
+                    Shoot();
+                }
             }
         }
     }
@@ -60,5 +64,10 @@ public class EnemyStaticController : MonoBehaviour
     public void SetPlayer(GameObject _player)
     {
         player = _player;
+    }
+
+    public void SetGameManager(GameManager _gameManager)
+    {
+        gameManager = _gameManager;
     }
 }

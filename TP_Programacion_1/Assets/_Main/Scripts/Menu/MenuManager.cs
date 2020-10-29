@@ -13,9 +13,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject helpMenu;
     [SerializeField] private GameObject creditsMenu;
     private bool mainMenuCheck;
-    private bool helpMenuCheck;
-    private bool creditsMenuCheck;
-
 
     [Header("MainMenu Settings")]
     [SerializeField] private Button buttonPlay;

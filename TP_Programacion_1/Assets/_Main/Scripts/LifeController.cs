@@ -70,4 +70,9 @@ public class LifeController : MonoBehaviour
     {
         return maxLife;
     }
+
+    public int GetCurrentLife()
+    {
+        return currentLife;
+    }
 }

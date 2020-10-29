@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61c49029ac1c604481c4fec04845689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heal: 5
+  heal: 2
   timer: 1
 --- !u!95 &2880811193119697413
 Animator:

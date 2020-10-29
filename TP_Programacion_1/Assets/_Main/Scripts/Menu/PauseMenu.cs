@@ -1,46 +1,106 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    [Header("AllMenus Settings")]
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private bool isActive;
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject helpMenu;
+    [SerializeField] private GameManager gameManager;
 
-    // Start is called before the first frame update
+    [Header("PauseMenu Settings")]
+    [SerializeField] private Button buttonResume;
+    [SerializeField] private Button buttonHelp;
+    [SerializeField] private Button buttonQuit;
+
+    [Header("Help Settings")]
+    [SerializeField] private Button buttonGoBack;
+
+    //Extras
+    private bool isActive;
+    private bool mainMenuActive;
+
     void Start()
     {
         GoBack();
+        ExitMenu();
+        buttonResume.onClick.AddListener(OnClickResumeHandler);
+        buttonHelp.onClick.AddListener(OnClickHelpHandler);
+        buttonQuit.onClick.AddListener(OnClickQuitHandler);
+        buttonGoBack.onClick.AddListener(OnClickGoBackHandler);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("ESCAPE");
             if (!isActive)
             {
                 Pause();
             }
             else
             {
-                GoBack();
-            }
+                if (!mainMenuActive)
+                {
+                    GoBack();
+                } else
+                {
+                    ExitMenu();
+                }  
+            } 
         }
     }
 
     private void Pause()
     {
         Time.timeScale = 0;
+        gameManager.isFreeze = true;
         isActive = true;
+        mainMenuActive = true;
         pauseMenu.SetActive(true);
     }
 
     private void GoBack()
     {
+        mainMenuActive = true;
+        helpMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    private void ExitMenu()
+    {
         Time.timeScale = 1;
+        gameManager.isFreeze = false;
         isActive = false;
+        mainMenuActive = false;
+        helpMenu.SetActive(false);
+        mainMenu.SetActive(true);
         pauseMenu.SetActive(false);
+    }
+
+
+
+    private void OnClickHelpHandler()
+    {
+        mainMenu.SetActive(false);
+        helpMenu.SetActive(true);
+        mainMenuActive = false;
+    }
+    private void OnClickResumeHandler()
+    {
+        ExitMenu();
+    }
+
+    private void OnClickGoBackHandler()
+    {
+        GoBack();
+    }
+
+    private void OnClickQuitHandler()
+    {
+        Application.Quit();
     }
 }

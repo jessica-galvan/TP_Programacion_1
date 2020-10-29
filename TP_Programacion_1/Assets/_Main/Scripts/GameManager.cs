@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private bool gameEnd = false;
     private int enemyCounterLevel;
     private int enemyCounter;
+    public bool isFreeze;
 
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     {
         player.lifeController.OnDie.AddListener(OnPlayerDieListener);
         enemyCounter = enemyCounterLevel;
+        isFreeze = false;
     }
 
     // Update is called once per frame

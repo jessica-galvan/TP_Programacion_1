@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Health Settings")]
     public LifeController lifeController = null;
+    [SerializeField] GameManager gameManager = null;
     private Animator animatorController = null;
 
     [Header("Movement Settings")]
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool facingRight = true; //facingRight es para chequear en que sentido esta mirando el personaje. 
     private Rigidbody2D myRigidbody;
     private bool isGrounded;
+    private bool canJump;
 
     [Header("Attack Settings")]
     [SerializeField] private int maxMana = 6;
@@ -49,45 +51,58 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //JUMP
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (!gameManager.isFreeze)
+        {
+            //JUMP
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            {
+                canJump = true;
+            }
+            //MOVEMENT
+            movement = Input.GetAxisRaw("Horizontal") * (speed * Time.deltaTime); //El valor va entre -1 (izquierda) y 1 (derecha). 
+            transform.Translate(Mathf.Abs(movement), 0, 0); //El Mathf.Abs -> Math Absolute le saca los signos. Esto sirve porque al flippear el personaje siempre se mueve hacia adelante y el Flip me lo rota. 
+
+            if (movement < 0 && facingRight) //Si el movimiento es positivo y esta mirando a la derecha...
+            {
+                Flip();
+            }
+            else if (movement > 0 && !facingRight) //Si el movimiento es negativo y no esta mirando a la derecha...
+            {
+                Flip();
+            }
+
+            //Disparo
+            if (Input.GetMouseButtonDown(0) && Time.time > cooldownTimer && currentMana > 0) //Si recibe input de disparo y el cooldown ya no esta y además hay ammo...
+            {
+                Shoot();
+            }
+            else if (Input.GetMouseButtonDown(0) && Time.time > cooldownTimer || Input.GetMouseButtonDown(0) && currentMana > 0)
+            {
+                negativeActionSound.Play();
+            }
+
+            //RecargarMana -> Solo hasta que se cree el item que recarga Mana
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                RechargeMana();
+            }
+
+            //Activa una imagne visiuald e un boton para que el usuario sepa que apretar para recargar las balas. 
+            rButton.SetActive(currentMana == 0);
+
+            //Animaciones
+            animatorController.SetBool("IsRunning", movement != 0);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (canJump && isGrounded)
         {
             isGrounded = false;
+            canJump = false;
             myRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-        //MOVEMENT
-        movement = Input.GetAxisRaw("Horizontal") * (speed * Time.deltaTime); //El valor va entre -1 (izquierda) y 1 (derecha). 
-        transform.Translate(Mathf.Abs(movement), 0,0); //El Mathf.Abs -> Math Absolute le saca los signos. Esto sirve porque al flippear el personaje siempre se mueve hacia adelante y el Flip me lo rota. 
-
-        if(movement < 0 && facingRight) //Si el movimiento es positivo y esta mirando a la derecha...
-        {
-            Flip();
-        } else if(movement > 0 && !facingRight ) //Si el movimiento es negativo y no esta mirando a la derecha...
-        {
-            Flip();
-        }
-
-        //Disparo
-        if(Input.GetMouseButtonDown(0) && Time.time > cooldownTimer && currentMana > 0) //Si recibe input de disparo y el cooldown ya no esta y además hay ammo...
-        {
-            Shoot();
-        } else if(Input.GetMouseButtonDown(0) && Time.time > cooldownTimer || Input.GetMouseButtonDown(0) && currentMana > 0)
-        {
-           negativeActionSound.Play();
-        }
-
-        //RecargarMana -> Solo hasta que se cree el item que recarga Mana
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RechargeMana();
-        }
-
-        //Activa una imagne visiuald e un boton para que el usuario sepa que apretar para recargar las balas. 
-        rButton.SetActive(currentMana == 0);
-
-        //Animaciones
-        animatorController.SetBool("IsRunning", movement != 0);
-
     }
 
 

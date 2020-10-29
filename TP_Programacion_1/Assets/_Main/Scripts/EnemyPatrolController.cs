@@ -17,9 +17,11 @@ public class EnemyPatrolController : MonoBehaviour
 
     [Header("Prefab Settings")]
     [SerializeField] private GameObject player;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private Transform groundDetectionPoint;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private Transform detectionPoint;
+
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource attackSound = null;
@@ -140,5 +142,9 @@ public class EnemyPatrolController : MonoBehaviour
     public void SetPlayer(GameObject _player)
     {
         player = _player;
+    }
+    public void SetGameManager(GameManager _gameManager)
+    {
+        gameManager = _gameManager;
     }
 }

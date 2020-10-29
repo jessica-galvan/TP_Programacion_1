@@ -1,19 +1,70 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeartManager : MonoBehaviour
 {
+    [Header("Heart Settings")]
+    [SerializeField] private GameObject player = null; 
+    [SerializeField] private LifeController lifeController = null;
     [SerializeField] private List<GameObject> hearts = new List<GameObject>();
+    [SerializeField] private GameObject heart = null;
+    //[SerializeField] private Sprite[] heartsImage = new Sprite[2];
+    private int currentHearts;
 
     void Start()
     {
-        //Se suscribe a la vida del player, cuando hay algun cambio en la vida, se quita o agrega vida. 
-        //Si vamos a poner medio corazon, quizas la vida del jugador deberia ser el doble, y cada vez que tiene la vida en impar, el ultimo corazon de la lista tendria que tener la mitad. De la misma manera, el ultimo corazon seria eliminado o completado si se quita o se agregan vida
+        lifeController = player.GetComponent<LifeController>();
+        lifeController.OnChangeCurrentLife.AddListener(OnCurrentLifeListener);
+
+        currentHearts = lifeController.GetCurrentLife();
+        if (currentHearts == 0)
+        {
+            currentHearts = lifeController.GetMaxLife();
+        }
+
+        //Con esto inicializamos la vida.
+        StartHeartBar();
+
     }
 
-    void Update()
+    private void StartHeartBar()
     {
-        
+        for (int i = 0; i < currentHearts; i++)
+        {
+            GameObject newHeart = Instantiate(heart);
+            newHeart.transform.parent = gameObject.transform;
+            hearts.Add(newHeart);
+        }
+    }
+
+    private void UpdateHearts()
+    {
+        currentHearts = lifeController.GetCurrentLife();
+        if(currentHearts < hearts.Count)
+        { 
+            for (int i = 0; i < hearts.Count; i++)
+            {
+                if(i > (currentHearts-1))
+                {
+                    hearts[i].SetActive(false);
+                } 
+            }
+        } else
+        {
+            for (int i = 0; i < hearts.Count; i++)
+            {
+                if (i < currentHearts)
+                {
+                    hearts[i].SetActive(true);
+                }
+            }
+        }
+    }
+
+    private void OnCurrentLifeListener()
+    {
+        UpdateHearts();
     }
 }
