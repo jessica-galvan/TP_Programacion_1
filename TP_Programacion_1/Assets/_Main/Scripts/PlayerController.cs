@@ -156,7 +156,6 @@ public class PlayerController : MonoBehaviour
         {
             response = true;
         }
-        Debug.Log(response);
         return response;
     }
 
