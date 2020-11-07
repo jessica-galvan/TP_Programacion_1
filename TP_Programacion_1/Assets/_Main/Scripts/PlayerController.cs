@@ -82,13 +82,13 @@ public class PlayerController : MonoBehaviour
             }
 
             //RecargarMana -> Solo hasta que se cree el item que recarga Mana
-            if (Input.GetKeyDown(KeyCode.R))
+            /*if (Input.GetKeyDown(KeyCode.R))
             {
-                RechargeMana();
-            }
+                RechargeMana(6);
+            }*/
 
             //Activa una imagne visiuald e un boton para que el usuario sepa que apretar para recargar las balas. 
-            rButton.SetActive(currentMana == 0);
+            //rButton.SetActive(currentMana == 0);
 
             //Animaciones
             animatorController.SetBool("IsRunning", movement != 0);
@@ -121,19 +121,7 @@ public class PlayerController : MonoBehaviour
         facingRight = !facingRight;
     }
 
-    private void RechargeMana()
-    {
-        if (currentMana < maxMana)
-        {
-            currentMana = maxMana;
-            OnChangeMana.Invoke();
-            rechargeAmmoSound.Play();
-        }
-        else
-        {
-            negativeActionSound.Play();
-        }
-    }
+
 
     private void OnDieListener()
     {
@@ -154,9 +142,41 @@ public class PlayerController : MonoBehaviour
      }   
     }
 
+
+    //MANA
     public float GetManaPercentage()
     {
         return (float)currentMana / maxMana;
+    }
+     
+    public bool CanRechargeMana()
+    {
+        bool response = false;
+        if(currentMana < maxMana)
+        {
+            response = true;
+        }
+        Debug.Log(response);
+        return response;
+    }
+
+    public int GetMaxMana()
+    {
+        return maxMana;
+    }
+
+    public void RechargeMana(int mana)
+    {
+        if (currentMana < maxMana)
+        {
+            currentMana += mana;
+            OnChangeMana.Invoke();
+            rechargeAmmoSound.Play();
+        }
+        else
+        {
+            negativeActionSound.Play();
+        }
     }
 }
 

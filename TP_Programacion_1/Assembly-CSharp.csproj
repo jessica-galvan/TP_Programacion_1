@@ -109,6 +109,7 @@
     <Compile Include="Assets\_Main\Scripts\HealUp.cs" />
     <Compile Include="Assets\_Main\Scripts\InstantDeath.cs" />
     <Compile Include="Assets\_Main\Scripts\LifeController.cs" />
+    <Compile Include="Assets\_Main\Scripts\ManaUp.cs" />
     <Compile Include="Assets\_Main\Scripts\Menu\HeartManager.cs" />
     <Compile Include="Assets\_Main\Scripts\Menu\LifeBarController.cs" />
     <Compile Include="Assets\_Main\Scripts\Menu\ManaBarController.cs" />

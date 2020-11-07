@@ -228,7 +228,9 @@ MonoBehaviour:
   timer1: 1
   timer2: 3
   canInstantiate: 1
-  reward: {fileID: 4643241683810020395, guid: f44bf3e25cf69b146a39e41087952271, type: 3}
+  reward:
+  - {fileID: 4643241683810020395, guid: a52a3bdb83f5a5a418d8a2c68e49d6ff, type: 3}
+  - {fileID: 4643241683810020395, guid: f44bf3e25cf69b146a39e41087952271, type: 3}
   deathSound: {fileID: 6469072403807492137}
   rewardSound: {fileID: 7043726458736591284}
 --- !u!95 &8771149615712089160

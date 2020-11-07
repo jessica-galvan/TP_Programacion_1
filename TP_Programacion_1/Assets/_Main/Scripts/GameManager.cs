@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; //Este es necesario para cuando usemos el SceneManager
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
     private int enemyCounter;
     public bool isFreeze;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         player.lifeController.OnDie.AddListener(OnPlayerDieListener);
@@ -21,7 +19,6 @@ public class GameManager : MonoBehaviour
         isFreeze = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(enemyCounter == 0 && !gameEnd)
@@ -32,18 +29,16 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        //acá cargaría la escena
-        Debug.Log("El jugador murio");
+        //Debug.Log("El jugador murio");
         gameEnd = true;
-        //SceneManager.LoadScene("GameOver"); //Funciona pero lo dejo comentado porque por ahora no se cuando lo vamos a necesitar
+        SceneManager.LoadScene("GameOver"); //Funciona pero lo dejo comentado porque por ahora no se cuando lo vamos a necesitar
     }
 
     public void Victory()
     {
-        //acá cargaría la escena
-        Debug.Log("GANASTE");
+        //Debug.Log("GANASTE");
         gameEnd = true;
-        //SceneManager.LoadScene("Victory"); //O deberia cargar el siguiente nivel
+        SceneManager.LoadScene("Victory"); //O deberia cargar el siguiente nivel
     }
 
     private void OnPlayerDieListener()

@@ -8,11 +8,11 @@ public class DeathController : MonoBehaviour
     [SerializeField] private float timer1;
     [SerializeField] private float timer2;
     [SerializeField] private bool canInstantiate = true;
-    [SerializeField] private GameObject reward = null;
+    [SerializeField] private GameObject [] reward = new GameObject[2];
     [SerializeField] private AudioSource deathSound = null;
     [SerializeField] private AudioSource rewardSound = null;
+    private int numberReward;
 
-    // Start is called before the first frame update
     void Start()
     {
         timer1 += Time.time;
@@ -20,7 +20,6 @@ public class DeathController : MonoBehaviour
         deathSound.Play();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Primer timer, para instanciar luego de la animacion de muerte, la reward.
@@ -30,7 +29,8 @@ public class DeathController : MonoBehaviour
             if(canInstantiate)
             {
                 canInstantiate = false;
-                Instantiate(reward, transform.position, transform.rotation);
+                GetRandom();
+                Instantiate(reward[numberReward], transform.position, transform.rotation);
                 rewardSound.Play();
             }
             //Mientras tanto, hay un control del segundo timer, asi el objeto se destruye también. 
@@ -39,5 +39,10 @@ public class DeathController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+    
+    private void GetRandom()
+    {
+        numberReward = Random.Range(0, reward.Length);
     }
 }
