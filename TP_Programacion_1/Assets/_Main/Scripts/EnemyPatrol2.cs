@@ -18,7 +18,7 @@ public class EnemyPatrol2 : MonoBehaviour
     private GameObject barrierLeft;
     private GameObject barrierRight;
     private EnemyController enemy;
-    private bool playerWasHere;
+    private bool followingPlayer;
     private bool isBarrierActive;
     private bool checkDirection;
     private bool canStartTimer;
@@ -56,7 +56,6 @@ public class EnemyPatrol2 : MonoBehaviour
     private float moveTimer = 0f;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -69,89 +68,74 @@ public class EnemyPatrol2 : MonoBehaviour
         barrierLeft = Instantiate(invisibleBarrierPrefab, leftX.transform.position, transform.rotation);
         barrierRight = Instantiate(invisibleBarrierPrefab, rightX.transform.position, transform.rotation);
         spawnPoint = transform.position;
-        //Con esto sacamos cuanto puede ver. 
-        playerDetectionDistance = Vector2.Distance(transform.position, playerDetectionPoint.position);
+        playerDetectionDistance = Vector2.Distance(transform.position, playerDetectionPoint.position);  //Con esto sacamos a cuanta distancia puede ver. 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //CUANDO VEAS AL PLAYER
-        RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, transform.right, playerDetectionDistance, playerDetectionList);
-        if (hitPlayer)
+        RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, transform.right, playerDetectionDistance, playerDetectionList); 
+        if (hitPlayer) //CUANDO VEAS AL PLAYER
         {
-            //Desactiva las barreras de patruyar.
-            if (isBarrierActive)
+            if (!followingPlayer)  //Desactiva las barreras de patruyar para perseguirlo
             {
-                toggleBarriers();
-                playerWasHere = true;
+                statusBarriers(false);
+                followingPlayer = true;
                 checkDirection = true;
-            } else //si no estan activas, desactivame que vuelva al spawnPoint
-            {
                 canReturnToSpawnPoint = false;
-                canStartTimer = false;
-            }
-
-            //Perseguilo y movete más rápido
-            currentSpeed = followingSpeed;
-            Vector2.MoveTowards(player.transform.position, transform.position, currentSpeed);
+                currentSpeed = followingSpeed;
+            } 
 
             //Y si esta a una distancia menor o igual al radio de ataque, dejate de mover. 
             float distance = Vector2.Distance(hitPlayer.collider.transform.position, attackPoint.position);
-            if (distance <= attackRadius && canMove)
+            if (distance <= attackRadius)
             {
                 canMove = false;
-                couldAttack = true;
-                Debug.Log("Estas en rango");
+                if (canAttack && Time.time > cooldownTimer)
+                {
+                    Attack();
+                }
+            } 
 
-            } else if (distance > attackRadius && !canMove)
+            //Termino animación ataque? Se puede mover
+            if (!canMove && Time.time > moveTimer && distance > attackRadius)
             {
-                Debug.Log("Te fuiste");
-                moveTimer = moveCooldown + Time.time;
-                couldAttack = false;
+                canMove = true;
             }
-
-            if (couldAttack && canAttack && Time.time > cooldownTimer)
+        }
+        else   //Si dejaste de ver al player, espera un rato y patrulla
+        {
+            if (followingPlayer)
             {
+                checkPlayerTimer = checkPlayerTimeDuration + Time.time;
                 canMove = false;
-                Debug.Log(canMove + "Te ataque");
-                Attack();
+                currentSpeed = normalSpeed;
+                followingPlayer = false;
             }
 
-
-        } else if (!hitPlayer && playerWasHere)    //Si dejaste de ver al player, se activa playerWashere que inicia "volver al spawn point".
-        {
-            currentSpeed = normalSpeed;
-            checkPlayerTimer = checkPlayerTimeDuration + Time.time;
-            canStartTimer = true;
-            canMove = false;
-            playerWasHere = false;
-        }
-
-        //PERO espera unos segundos para al spawnPoint
-        if (canStartTimer && Time.time > checkPlayerTimer)
-        {
-            canReturnToSpawnPoint = true;
-            canStartTimer = false;
-            canMove = true;
-        }
-
-        //Ahora podes volver al punto de spawn
-        if (canReturnToSpawnPoint && !isBarrierActive)
-        {
-            //hace un check de la direcion del spawnpoint
-            if (checkDirection)
+            //PERO espera unos segundos para al spawnPoint
+            if (!canReturnToSpawnPoint && Time.time > checkPlayerTimer)
             {
-                checkDirection = false;
-                checkSpawnPointDirection();
+                canReturnToSpawnPoint = true;
+                canMove = true;
             }
 
-            //cuando estes cerca, activa las barreras asi patruyas
-            float difMax = Vector2.Distance(transform.position, spawnPoint);
-            if (difMax < 1f)
+            //Ahora podes volver al punto de spawn
+            if (canReturnToSpawnPoint && !isBarrierActive)
             {
-                canReturnToSpawnPoint = false;
-                toggleBarriers();
+                //hace un check de la direcion del spawnpoint
+                if (checkDirection)
+                {
+                    checkDirection = false;
+                    checkSpawnPointDirection();
+                }
+
+                //cuando estes cerca, activa las barreras asi patruyas
+                float difMax = Vector2.Distance(transform.position, spawnPoint);
+                if (difMax < 1f)
+                {
+                    canReturnToSpawnPoint = false;
+                    statusBarriers(true);
+                }
             }
         }
 
@@ -162,18 +146,11 @@ public class EnemyPatrol2 : MonoBehaviour
             BackFlip();
         }
 
-        //Termino animación ataque? Se puede mover
-        if (!canMove && Time.time > moveTimer)
-        {
-            canMove = true;
-        }
-
         //Cooldown Attack Timer
         if(!canAttack && Time.time > cooldownTimer)
         {
             canAttack = true;
         }
-
     }
 
     private void FixedUpdate()
@@ -184,9 +161,9 @@ public class EnemyPatrol2 : MonoBehaviour
         }
     }
 
-    private void toggleBarriers()
+    private void statusBarriers(bool status)
     {
-        isBarrierActive = !isBarrierActive;
+        isBarrierActive = status;
         barrierLeft.SetActive(isBarrierActive);
         barrierRight.SetActive(isBarrierActive);
     }
@@ -215,14 +192,14 @@ public class EnemyPatrol2 : MonoBehaviour
     //Aca chequeamos en que sentido esta mirando el enemigo y en que sentido esta el currentTarget. Si currentTransform es mayor a la posicion del enemigo, y no esta mirando a la derecha...
     private void checkSpawnPointDirection()
     {
-        if (spawnPoint.x > transform.position.x && !facingRight)
+        if (spawnPoint.x > transform.position.x)
         {
-            transform.Rotate(0f, 180f, 0f);
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             facingRight = true;
         }
-        else if (spawnPoint.x < transform.position.x && facingRight)
+        else
         {
-            transform.Rotate(0f, 180f, 0f);
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
             facingRight = false;
         }
     }
