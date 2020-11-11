@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -13,6 +14,7 @@ public class PauseMenu : MonoBehaviour
 
     [Header("PauseMenu Settings")]
     [SerializeField] private Button buttonResume;
+    [SerializeField] private Button buttonMainMenu;
     [SerializeField] private Button buttonHelp;
     [SerializeField] private Button buttonQuit;
 
@@ -31,6 +33,7 @@ public class PauseMenu : MonoBehaviour
         buttonHelp.onClick.AddListener(OnClickHelpHandler);
         buttonQuit.onClick.AddListener(OnClickQuitHandler);
         buttonGoBack.onClick.AddListener(OnClickGoBackHandler);
+        buttonMainMenu.onClick.AddListener(OnClickMenuHandler);
     }
 
     void Update()
@@ -92,6 +95,11 @@ public class PauseMenu : MonoBehaviour
     private void OnClickResumeHandler()
     {
         ExitMenu();
+    }
+
+    private void OnClickMenuHandler()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void OnClickGoBackHandler()

@@ -86,12 +86,13 @@ public class EnemyPatrolController : MonoBehaviour
                 BackFlip();
             } else
             {
-                //Patruya tranquilo
+                //Patruya tranquilo y cuando tu distancia sea menor a tanto... rota.
                 float difMax = Vector2.Distance(transform.position, currentTarget);
+                Debug.Log(difMax);
                 if (difMax <= 1f)
                 {
                     BackFlip();
-                }
+                } 
             }
 
         }
@@ -153,8 +154,6 @@ public class EnemyPatrolController : MonoBehaviour
         facingRight = true;
         currentTarget = currentTarget == leftPoint ? rightPoint : leftPoint;
     }
-
-
 
     public void SetPlayer(GameObject _player)
     {
