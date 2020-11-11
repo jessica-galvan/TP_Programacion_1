@@ -68,6 +68,7 @@ public class EnemyPatrol2 : MonoBehaviour
         barrierLeft = Instantiate(invisibleBarrierPrefab, leftX.transform.position, transform.rotation);
         barrierRight = Instantiate(invisibleBarrierPrefab, rightX.transform.position, transform.rotation);
         spawnPoint = transform.position;
+        //Con esto sacamos cuanto puede ver. 
         playerDetectionDistance = Vector2.Distance(transform.position, playerDetectionPoint.position);
     }
 
@@ -167,10 +168,10 @@ public class EnemyPatrol2 : MonoBehaviour
 
     private void Attack()
     {
-        canMove = false;
+        canMove = false; //mientras hace la animación de ataque, no deberia moverse
         canAttack = false;
-        cooldownTimer += cooldown;
-        moveTimer += moveCooldown;
+
+        moveTimer = moveCooldown + Time.time;
         //animatorController.SetTrigger("IsAttacking");
 
         Collider2D collider = Physics2D.OverlapCircle((Vector2)attackPoint.position, attackRadius, playerDetectionList);
@@ -183,6 +184,8 @@ public class EnemyPatrol2 : MonoBehaviour
                 life.TakeDamage(damage);
             }
         }
+        //Comienza el attack cooldown
+        cooldownTimer = cooldown + Time.time;
     }
 
     //Aca chequeamos en que sentido esta mirando el enemigo y en que sentido esta el currentTarget. Si currentTransform es mayor a la posicion del enemigo, y no esta mirando a la derecha...
