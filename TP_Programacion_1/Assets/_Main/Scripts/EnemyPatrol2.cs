@@ -45,6 +45,7 @@ public class EnemyPatrol2 : MonoBehaviour
     [SerializeField] private float moveCooldown = 0.8f;
     private float cooldownTimer = 0f;
     private bool canAttack;
+    private bool couldAttack;
     private float playerDetectionDistance;
 
     //Extras
@@ -85,22 +86,45 @@ public class EnemyPatrol2 : MonoBehaviour
                 toggleBarriers();
                 playerWasHere = true;
                 checkDirection = true;
+            } else //si no estan activas, desactivame que vuelva al spawnPoint
+            {
+                canReturnToSpawnPoint = false;
+                canStartTimer = false;
             }
+
+            //Perseguilo y movete más rápido
             currentSpeed = followingSpeed;
-            //Perseguilo
             Vector2.MoveTowards(player.transform.position, transform.position, currentSpeed);
 
-            //Y si esta a una distancia menor o igual al radio de ataque, atacalo. 
+            //Y si esta a una distancia menor o igual al radio de ataque, dejate de mover. 
             float distance = Vector2.Distance(hitPlayer.collider.transform.position, attackPoint.position);
-            if (distance <= attackRadius && canAttack && Time.time > cooldownTimer)
+            if (distance <= attackRadius && canMove)
             {
+                canMove = false;
+                couldAttack = true;
+                Debug.Log("Estas en rango");
+
+            } else if (distance > attackRadius && !canMove)
+            {
+                Debug.Log("Te fuiste");
+                moveTimer = moveCooldown + Time.time;
+                couldAttack = false;
+            }
+
+            if (couldAttack && canAttack && Time.time > cooldownTimer)
+            {
+                canMove = false;
+                Debug.Log(canMove + "Te ataque");
                 Attack();
             }
-        } else if (playerWasHere && !hitPlayer)    //Si dejaste de ver al player, se activa playerWashere que inicia "volver al spawn point".
+
+
+        } else if (!hitPlayer && playerWasHere)    //Si dejaste de ver al player, se activa playerWashere que inicia "volver al spawn point".
         {
             currentSpeed = normalSpeed;
-            checkPlayerTimer = checkPlayerTimeDuration;
+            checkPlayerTimer = checkPlayerTimeDuration + Time.time;
             canStartTimer = true;
+            canMove = false;
             playerWasHere = false;
         }
 
@@ -109,6 +133,7 @@ public class EnemyPatrol2 : MonoBehaviour
         {
             canReturnToSpawnPoint = true;
             canStartTimer = false;
+            canMove = true;
         }
 
         //Ahora podes volver al punto de spawn
@@ -175,7 +200,6 @@ public class EnemyPatrol2 : MonoBehaviour
         //animatorController.SetTrigger("IsAttacking");
 
         Collider2D collider = Physics2D.OverlapCircle((Vector2)attackPoint.position, attackRadius, playerDetectionList);
-        Debug.Log(collider);
         if (collider != null)
         {
             LifeController life = collider.gameObject.GetComponent<LifeController>();

@@ -27,6 +27,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool CheckIfTheyAreEnemies()
+    {
+        bool response = false;
+        if(enemyCounter > 0)
+        {
+            response = true;
+        }
+        return response;
+    }
+
     public void GameOver()
     {
         //Debug.Log("El jugador murio");
@@ -55,7 +65,6 @@ public class GameManager : MonoBehaviour
     public void takeOneEnemy()
     {
         enemyCounter--;
-        Debug.Log($"Mataste un enemigo, te quedan {enemyCounter}");
     }
 
 }

@@ -26,10 +26,13 @@ public class PlayerController : MonoBehaviour
     [Header("Attack Settings")]
     [SerializeField] private int maxMana = 6;
     [SerializeField] private int currentMana;
-    [SerializeField] private float cooldown = 0f;
-    private float cooldownTimer = 0f;
     [SerializeField] private GameObject bullet = null;
     [SerializeField] private GameObject rButton = null;
+    [SerializeField] private float cooldown = 0f;
+    [SerializeField] private float manaCooldown = 3f;
+    private float cooldownTimer = 0f;
+    private float manaCooldownTimer = 0f;
+    private bool canRechargeMana;
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
@@ -81,14 +84,23 @@ public class PlayerController : MonoBehaviour
                 negativeActionSound.Play();
             }
 
-            //RecargarMana -> Solo hasta que se cree el item que recarga Mana
-            /*if (Input.GetKeyDown(KeyCode.R))
+            //RecargarMana cuando queda en cero hasta que tenga la mitad
+            if (gameManager.CheckIfTheyAreEnemies() && currentMana == 0 & !canRechargeMana)
             {
-                RechargeMana(6);
-            }*/
+                canRechargeMana = true;
+                manaCooldownTimer = manaCooldown + Time.time;
+            }
 
-            //Activa una imagne visiuald e un boton para que el usuario sepa que apretar para recargar las balas. 
-            //rButton.SetActive(currentMana == 0);
+            if (canRechargeMana && Time.time > manaCooldownTimer && currentMana <= 2)
+            {
+                manaCooldownTimer = manaCooldown + Time.time;
+                RechargeMana(1);
+
+            }
+            else if(currentMana > 2)
+            {
+                canRechargeMana = false;
+            }
 
             //Animaciones
             animatorController.SetBool("IsRunning", movement != 0);
