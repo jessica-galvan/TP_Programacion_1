@@ -116,6 +116,7 @@
     <Compile Include="Assets\_Main\Scripts\Menu\MenuManager.cs" />
     <Compile Include="Assets\_Main\Scripts\Menu\PauseMenu.cs" />
     <Compile Include="Assets\_Main\Scripts\Parallax.cs" />
+    <Compile Include="Assets\_Main\Scripts\PatrolEnemyFlip.cs" />
     <Compile Include="Assets\_Main\Scripts\PlayerController.cs" />
     <Compile Include="Assets\_Main\Scripts\PlayerDeath.cs" />
     <Compile Include="Assets\_Main\Scripts\VictoryTrigger.cs" />

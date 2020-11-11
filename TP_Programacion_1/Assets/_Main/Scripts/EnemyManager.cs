@@ -19,18 +19,22 @@ public class EnemyManager : MonoBehaviour
         foreach (var item in this.transform)
         {
             enemyCounter++;
-            gameManager.addOneInEnemyCounter();
         }
 
-        //y acá los agregamos a la lista
+        //y acá los agregamos a la lista, pero solo si el objeto esta activo.
         for (int i = 0; i < enemyCounter; i++)
         {
-            enemies.Add(transform.GetChild(i).gameObject);
+            if (transform.GetChild(i).gameObject.activeSelf)
+            {
+                gameManager.addOneInEnemyCounter();
+                enemies.Add(transform.GetChild(i).gameObject);
+            }
         }
 
         //acá se setea el game manager y player para cada item
         for (int i = 0; i < enemies.Count; i++)
         {
+
             EnemyController enemyController = enemies[i].GetComponent<EnemyController>();
             enemyController.SetPlayer(player);
             enemyController.SetGameManager(gameManager);
@@ -42,8 +46,15 @@ public class EnemyManager : MonoBehaviour
                 enemyStatic.SetGameManager(gameManager);
             }
 
-            EnemyPatrolController enemyPatrol = enemies[i].GetComponent<EnemyPatrolController>();
+            /*EnemyPatrolController enemyPatrol = enemies[i].GetComponent<EnemyPatrolController>();
             if(enemyPatrol != null)
+            {
+                enemyPatrol.SetPlayer(player);
+                enemyPatrol.SetGameManager(gameManager);
+            }*/
+
+            EnemyPatrol2 enemyPatrol = enemies[i].GetComponent<EnemyPatrol2>();
+            if (enemyPatrol != null)
             {
                 enemyPatrol.SetPlayer(player);
                 enemyPatrol.SetGameManager(gameManager);
