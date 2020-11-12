@@ -139,7 +139,7 @@ public class EnemyPatrol2 : MonoBehaviour
             }
         }
 
-        //GroundDetection
+        //GroundDetection esta funcionando todo el tiempo
         RaycastHit2D hitPatrol = Physics2D.Raycast(groundDetectionPoint.position, Vector2.down, groundDetectionDistance, groundDetectionList);
         if (!hitPatrol)
         {
