@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -669,7 +669,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -721,9 +721,10 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   maxMana: 6
   currentMana: 0
-  cooldown: 2
   bullet: {fileID: 3762357391963882051, guid: 703240003517a7548acfa66829f70e0c, type: 3}
   rButton: {fileID: 168205776}
+  cooldown: 2
+  manaCooldown: 3
   shootingSound: {fileID: 833227428}
   rechargeAmmoSound: {fileID: 8565926417903950869}
   negativeActionSound: {fileID: 1595172221}
