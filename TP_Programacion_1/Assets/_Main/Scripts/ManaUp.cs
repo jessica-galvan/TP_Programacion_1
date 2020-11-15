@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ManaUp : MonoBehaviour
 {
+    [SerializeField] private GameObject manaLight;
     [SerializeField] private int manaRecharge = 1;
     [SerializeField] private float timer = 1;
     private bool canDestroy = false;
@@ -43,6 +44,7 @@ public class ManaUp : MonoBehaviour
                     //Desactivame el animator y el sprite renderer. Además toca el sonido.
                     sprite.enabled = false;
                     animatorController.enabled = false;
+                    manaLight.SetActive(false);
                     rechargeSound.Play();
                     //Recarga el mana
                     player.RechargeMana(manaRecharge);

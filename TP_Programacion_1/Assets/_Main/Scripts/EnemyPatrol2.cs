@@ -50,7 +50,7 @@ public class EnemyPatrol2 : MonoBehaviour
 
     //Extras
     private Rigidbody2D rb2d;
-    //private Animator animatorController = null;
+    private Animator animatorController = null;
     private bool canMove;
     private bool facingRight;
     private float moveTimer = 0f;
@@ -59,7 +59,7 @@ public class EnemyPatrol2 : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        //animatorController = GetComponent<Animator>();
+        animatorController = GetComponent<Animator>();
         enemy = GetComponent<EnemyController>();
         canMove = true;
         canAttack = true;
@@ -151,6 +151,15 @@ public class EnemyPatrol2 : MonoBehaviour
         {
             canAttack = true;
         }
+
+        if(canMove)
+        {
+            animatorController.SetBool("Walk", true);
+        }
+        else
+        {
+            animatorController.SetBool("Walk", false);
+        }
     }
 
     private void FixedUpdate()
@@ -174,7 +183,7 @@ public class EnemyPatrol2 : MonoBehaviour
         canAttack = false;
 
         moveTimer = moveCooldown + Time.time;
-        //animatorController.SetTrigger("IsAttacking");
+        animatorController.SetTrigger("IsAttacking");
 
         Collider2D collider = Physics2D.OverlapCircle((Vector2)attackPoint.position, attackRadius, playerDetectionList);
         if (collider != null)

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HealUp : MonoBehaviour
 {
+    [SerializeField] private GameObject healLight;
     [SerializeField] private int heal= 0;
     [SerializeField] private float timer = 1;
     private  bool canDestroy = false;
@@ -42,6 +43,7 @@ public class HealUp : MonoBehaviour
                 //Desactivame el animator y el sprite renderer. Además toca el sonido.
                 sprite.enabled = false;
                 animatorController.enabled = false;
+                healLight.SetActive(false);
                 healSound.Play();
                 //Cura al jugador, cambia la variable de destruiye y setear el timer. 
                 life.TakeHeal(heal);

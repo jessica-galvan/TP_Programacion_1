@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     [Header("Health Settings")]
     public LifeController lifeController = null;
-    //private Animator animatorController;
+    private Animator animatorController;
     
     [Header("Attack Settings")]
     [SerializeField] private int bodyDamage = 5;
@@ -22,6 +22,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private AudioSource shootingSound = null;
     [SerializeField] private AudioSource damageSound = null;
 
+
+    private void Awake() 
+    {
+        animatorController = GetComponent<Animator>();
+    }
     void Start()
     {
         //animatorController = GetComponent<Animator>();
@@ -40,6 +45,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTakeDamageListener(int currentLife, int damage)
     {
+        animatorController.SetTrigger("TakeDamage");
         damageSound.Play();
     }
 

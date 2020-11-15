@@ -41,15 +41,18 @@ public class EnemyPatrolController : MonoBehaviour
 
     //Extras
     private Rigidbody2D rb2d;
-    //private Animator animatorController = null;
+    private Animator animatorController = null;
     private bool canMove;
     private float moveTimer = 0f;
 
-
+    private void Awake() 
+    {
+       
+    }
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        //animatorController = GetComponent<Animator>();
+        animatorController = GetComponent<Animator>();
         enemy = GetComponent<EnemyController>();
         canMove = true;
         canAttack = true;
@@ -67,7 +70,7 @@ public class EnemyPatrolController : MonoBehaviour
         {
             //Perseguilo
             Vector2.MoveTowards(player.transform.position, transform.position, speed * 2);
-
+            
             //Y si esta a una distancia menor o igual al radio de ataque, atacalo. 
             float distance = Vector2.Distance(hitPlayer.collider.transform.position, attackPoint.position);
             if (distance <= attackRadius && canAttack && Time.time > cooldownTimer)
@@ -102,6 +105,7 @@ public class EnemyPatrolController : MonoBehaviour
         {
             canMove = true;
         }
+
     }
 
     private void FixedUpdate()
@@ -118,7 +122,7 @@ public class EnemyPatrolController : MonoBehaviour
         canAttack = false;
         cooldownTimer += cooldown;
         moveTimer += moveCooldown;
-        //animatorController.SetTrigger("IsAttacking");
+        animatorController.SetTrigger("IsAttacking");
 
         Collider2D collider = Physics2D.OverlapCircle((Vector2)attackPoint.position, attackRadius, playerDetectionList);
         Debug.Log(collider);
@@ -162,5 +166,11 @@ public class EnemyPatrolController : MonoBehaviour
     public void SetGameManager(GameManager _gameManager)
     {
         gameManager = _gameManager;
+    }
+
+    private void OnTakeDamageListener(int currentLife, int damage)
+    {
+        animatorController.SetTrigger("TakeDamage");
+        //damageSound.Play();
     }
 }
