@@ -22,27 +22,20 @@ public class DeathController : MonoBehaviour
 
     void Update()
     {
-        //Primer timer, para instanciar luego de la animacion de muerte, la reward.
-        if(Time.time > timer1)
-        {
-            //el control es para que no instancie eternamente. Apenas entra, cambia a false, para frenarlo. Sin esto, lo hace hasta que se destruye el objeto. 
-            if(canInstantiate)
+        if(Time.time > timer1)         //Primer timer, para instanciar luego de la animacion de muerte, la reward.
+        {  
+            if(canInstantiate)  //el control es para que no instancie eternamente. Apenas entra, cambia a false, para frenarlo. Sin esto, lo hace hasta que se destruye el objeto. 
             {
                 canInstantiate = false;
-                GetRandom();
+                numberReward = Random.Range(0, reward.Length); //Para obtener un numero random entre reward
                 Instantiate(reward[numberReward], transform.position, transform.rotation);
                 rewardSound.Play();
             }
-            //Mientras tanto, hay un control del segundo timer, asi el objeto se destruye también. 
-            if (Time.time > timer2)
+            
+            if (Time.time > timer2) //Mientras tanto, hay un control del segundo timer, asi el objeto se destruye también. 
             {
                 Destroy(gameObject);
             }
         }
-    }
-    
-    private void GetRandom()
-    {
-        numberReward = Random.Range(0, reward.Length);
     }
 }

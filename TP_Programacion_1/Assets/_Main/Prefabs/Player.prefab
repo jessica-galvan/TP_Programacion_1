@@ -275,7 +275,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.629
   m_Color: {r: 0.8726415, g: 1, b: 0.9745279, a: 1}
-  m_Intensity: 0.24
+  m_Intensity: 0.71
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 0000000083094f20
   m_LightCookieSprite: {fileID: 0}
@@ -795,7 +795,6 @@ MonoBehaviour:
   maxMana: 6
   currentMana: 0
   bullet: {fileID: 3762357391963882051, guid: 703240003517a7548acfa66829f70e0c, type: 3}
-  rButton: {fileID: 168205776}
   cooldown: 2
   manaCooldown: 3
   shootingSound: {fileID: 833227428}

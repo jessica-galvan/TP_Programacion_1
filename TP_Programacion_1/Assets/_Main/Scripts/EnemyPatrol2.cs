@@ -21,13 +21,10 @@ public class EnemyPatrol2 : MonoBehaviour
     private bool followingPlayer;
     private bool isBarrierActive;
     private bool checkDirection;
-    private bool canStartTimer;
     private bool canReturnToSpawnPoint;
 
 
     [Header("Prefab Settings")]
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameManager gameManager;
     [SerializeField] private Transform groundDetectionPoint;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private Transform playerDetectionPoint;
@@ -45,7 +42,6 @@ public class EnemyPatrol2 : MonoBehaviour
     [SerializeField] private float moveCooldown = 0.8f;
     private float cooldownTimer = 0f;
     private bool canAttack;
-    private bool couldAttack;
     private float playerDetectionDistance;
 
     //Extras
@@ -85,9 +81,8 @@ public class EnemyPatrol2 : MonoBehaviour
                 currentSpeed = followingSpeed;
             } 
 
-            //Y si esta a una distancia menor o igual al radio de ataque, dejate de mover. 
             float distance = Vector2.Distance(hitPlayer.collider.transform.position, attackPoint.position);
-            if (distance <= attackRadius)
+            if (distance <= attackRadius) //Y si esta a una distancia menor o igual al radio de ataque, dejate de mover. 
             {
                 canMove = false;
                 if (canAttack && Time.time > cooldownTimer)
@@ -96,15 +91,14 @@ public class EnemyPatrol2 : MonoBehaviour
                 }
             } 
 
-            //Termino animación ataque? Se puede mover
-            if (!canMove && Time.time > moveTimer && distance > attackRadius)
+            if (!canMove && Time.time > moveTimer && distance > attackRadius) //Termino animación ataque? Se puede mover
             {
                 canMove = true;
             }
         }
         else   //Si dejaste de ver al player, espera un rato y patrulla
         {
-            if (followingPlayer)
+            if (followingPlayer) //Si estabas siguiendo al player
             {
                 checkPlayerTimer = checkPlayerTimeDuration + Time.time;
                 canMove = false;
@@ -112,25 +106,21 @@ public class EnemyPatrol2 : MonoBehaviour
                 followingPlayer = false;
             }
 
-            //PERO espera unos segundos para al spawnPoint
-            if (!canReturnToSpawnPoint && Time.time > checkPlayerTimer)
+            if (!canReturnToSpawnPoint && Time.time > checkPlayerTimer) //PERO espera unos segundos para al spawnPoint
             {
                 canReturnToSpawnPoint = true;
                 canMove = true;
             }
 
-            //Ahora podes volver al punto de spawn
-            if (canReturnToSpawnPoint && !isBarrierActive)
-            {
-                //hace un check de la direcion del spawnpoint
-                if (checkDirection)
+            if (canReturnToSpawnPoint && !isBarrierActive) //Ahora podes volver al punto de spawn
+            {          
+                if (checkDirection) //hace un check de la direcion del spawnpoint
                 {
-                    checkDirection = false;
+                    checkDirection = false; //pero solo una vez
                     checkSpawnPointDirection();
                 }
 
-                //cuando estes cerca, activa las barreras asi patruyas
-                float difMax = Vector2.Distance(transform.position, spawnPoint);
+                float difMax = Vector2.Distance(transform.position, spawnPoint);  //cuando estes cerca, activa las barreras asi patruyas
                 if (difMax < 1f)
                 {
                     canReturnToSpawnPoint = false;
@@ -139,26 +129,17 @@ public class EnemyPatrol2 : MonoBehaviour
             }
         }
 
-        //GroundDetection esta funcionando todo el tiempo
-        RaycastHit2D hitPatrol = Physics2D.Raycast(groundDetectionPoint.position, Vector2.down, groundDetectionDistance, groundDetectionList);
-        if (!hitPatrol)
-        {
-            BackFlip();
-        }
+        animatorController.SetBool("Walk", canMove); //Mientras canMove sea true, vas a caminar
 
-        //Cooldown Attack Timer
-        if(!canAttack && Time.time > cooldownTimer)
+        RaycastHit2D hitPatrol = Physics2D.Raycast(groundDetectionPoint.position, Vector2.down, groundDetectionDistance, groundDetectionList);
+        if (!hitPatrol)      //GroundDetection esta funcionando todo el tiempo, si deja de detectar ground, va a flippear.
+        {
+            BackFlip(); 
+        }
+        
+        if(!canAttack && Time.time > cooldownTimer) //Cooldown Attack Timer
         {
             canAttack = true;
-        }
-
-        if(canMove)
-        {
-            animatorController.SetBool("Walk", true);
-        }
-        else
-        {
-            animatorController.SetBool("Walk", false);
         }
     }
 
@@ -194,43 +175,30 @@ public class EnemyPatrol2 : MonoBehaviour
                 life.TakeDamage(damage);
             }
         }
-        //Comienza el attack cooldown
-        cooldownTimer = cooldown + Time.time;
+       
+        cooldownTimer = cooldown + Time.time;  //Comienza el attack cooldown
     }
 
-    //Aca chequeamos en que sentido esta mirando el enemigo y en que sentido esta el currentTarget. Si currentTransform es mayor a la posicion del enemigo, y no esta mirando a la derecha...
-    private void checkSpawnPointDirection()
+    private void checkSpawnPointDirection()     //Aca chequeamos en que sentido esta mirando el enemigo y en que sentido esta el spawn point. 
     {
-        if (spawnPoint.x > transform.position.x)
+        if (spawnPoint.x > transform.position.x && !facingRight) //Si el spawnpint es mayor a la posicion del enemigo, y no esta mirando a la derecha...
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-            facingRight = true;
-        }
-        else
+            BackFlip();
+        } else if(spawnPoint.x < transform.position.x && facingRight) //si o si esta este else if porque solo tiene que flipear si esta mirando en la direccion contraria, sino ni flipea. 
         {
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-            facingRight = false;
+            BackFlip();
         }
-    }
-
-    public void OnDestroy()
-    {
-        Destroy(barrierLeft);
-        Destroy(barrierRight);
     }
 
     public void BackFlip()
     {
         enemy.BackFlip();
-        facingRight = true;
+        facingRight = !facingRight;
     }
 
-    public void SetPlayer(GameObject _player)
+    public void OnDestroy() //Para que destruya las barreras cuando se destruye el objeto. 
     {
-        player = _player;
-    }
-    public void SetGameManager(GameManager _gameManager)
-    {
-        gameManager = _gameManager;
+        Destroy(barrierLeft);
+        Destroy(barrierRight);
     }
 }

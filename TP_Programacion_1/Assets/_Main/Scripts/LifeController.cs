@@ -33,9 +33,9 @@ public class LifeController : MonoBehaviour
             OnChangeCurrentLife.Invoke();
         }
 
-        //isDead es para que no siga ejecutando la muerte si su vida es menor o igual a 0 y aun asi sigue en escena. Al final, con la instanciación de muerte ya esta. 
-        if (currentLife <= 0 && !isDead)
+        if (currentLife <= 0 && !isDead) //isDead es para que no siga ejecutando la muerte si su vida es menor o igual a 0 y aun asi sigue en escena. Al final, con la instanciación de muerte ya esta. 
         {
+            isDead = true;
             Die();
         }
     }
@@ -55,7 +55,6 @@ public class LifeController : MonoBehaviour
 
     public void Die()
     {
-        isDead = true;
         OnDie.Invoke();
         Instantiate(death, transform.position, transform.rotation);
         Destroy(gameObject);
@@ -74,5 +73,15 @@ public class LifeController : MonoBehaviour
     public int GetCurrentLife()
     {
         return currentLife;
+    }
+
+    public bool CanHeal()
+    {
+        bool response = false;
+        if (currentLife < maxLife)
+        {
+            response = true;
+        }
+        return response;
     }
 }

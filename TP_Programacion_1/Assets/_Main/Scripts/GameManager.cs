@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private PlayerController player = null;
-    //[SerializeField] private int points;
+    //[SerializeField] private int points; 
     private bool gameEnd = false;
     private int enemyCounterLevel;
     private int enemyCounter;
     public bool isFreeze;
+    public UnityEvent OnChangeCurrentEnemies = new UnityEvent();
 
     void Start()
     {
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("El jugador murio");
         gameEnd = true;
-        SceneManager.LoadScene("GameOver"); //Funciona pero lo dejo comentado porque por ahora no se cuando lo vamos a necesitar
+        SceneManager.LoadScene("GameOver"); 
     }
 
     public void Victory()
@@ -53,8 +55,7 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerDieListener()
     {
-        //Por ahora, mori. 
-        GameOver();
+        GameOver();  //Por ahora, mori
     }
 
     public void addOneInEnemyCounter()
@@ -65,6 +66,12 @@ public class GameManager : MonoBehaviour
     public void takeOneEnemy()
     {
         enemyCounter--;
+        OnChangeCurrentEnemies.Invoke();
+    }
+
+    public int GetEnemiesAmount()
+    {
+        return enemyCounter;
     }
 
 }

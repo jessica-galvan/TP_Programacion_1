@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyStaticController : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     [Header("Attack Settings")]
     [SerializeField] private Vector3 offset = Vector3.zero;
     [SerializeField] private float cooldown = 2f;
@@ -43,9 +41,8 @@ public class EnemyStaticController : MonoBehaviour
                     enemyController.BackFlip();
                 }
 
-                if (Time.time > cooldownTimer && canShoot) //cooldown y que ataque
+                if (canShoot && Time.time > cooldownTimer) //cooldown y que ataque
                 {
-                    canShoot = false;
                     Shoot();
                 }
             }
@@ -54,6 +51,7 @@ public class EnemyStaticController : MonoBehaviour
 
     private void Shoot()
     {
+        canShoot = false;
         shootingSound.Play();
         animatorController.SetTrigger("IsShooting");
         Instantiate(bullet, transform.position + offset, transform.rotation);

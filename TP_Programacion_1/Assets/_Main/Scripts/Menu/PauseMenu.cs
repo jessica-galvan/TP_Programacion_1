@@ -84,14 +84,13 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-
-
     private void OnClickHelpHandler()
     {
         mainMenu.SetActive(false);
         helpMenu.SetActive(true);
         mainMenuActive = false;
     }
+
     private void OnClickResumeHandler()
     {
         ExitMenu();
@@ -110,5 +109,6 @@ public class PauseMenu : MonoBehaviour
     private void OnClickQuitHandler()
     {
         Application.Quit();
+        Debug.Log("Se cierra el juego");
     }
 }

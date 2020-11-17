@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxMana = 6;
     [SerializeField] private int currentMana;
     [SerializeField] private GameObject bullet = null;
-    [SerializeField] private GameObject rButton = null;
     [SerializeField] private float cooldown = 0f;
     [SerializeField] private float manaCooldown = 3f;
     private float cooldownTimer = 0f;
@@ -178,16 +177,9 @@ public class PlayerController : MonoBehaviour
 
     public void RechargeMana(int mana)
     {
-        if (currentMana < maxMana)
-        {
-            currentMana += mana;
-            OnChangeMana.Invoke();
-            rechargeAmmoSound.Play();
-        }
-        else
-        {
-            negativeActionSound.Play();
-        }
+        currentMana += mana;
+        OnChangeMana.Invoke();
+        rechargeAmmoSound.Play();
     }
 }
 

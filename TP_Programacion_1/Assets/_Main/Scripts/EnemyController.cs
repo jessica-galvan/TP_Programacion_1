@@ -14,9 +14,9 @@ public class EnemyController : MonoBehaviour
     public bool canAttack = false;
 
     [Header("Prefabs Settings")]
-    [SerializeField] private GameObject player; 
-    [SerializeField] private GameManager gameManager = null;
     [SerializeField] private GameObject canvas = null;
+    private GameManager gameManager = null;
+    private GameObject player;
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
     }
     void Start()
     {
-        //animatorController = GetComponent<Animator>();
+        animatorController = GetComponent<Animator>();
         lifeController = GetComponent<LifeController>();
         lifeController.OnTakeDamage += OnTakeDamageListener;
         lifeController.OnDie.AddListener(OnDieListener);
@@ -40,7 +40,6 @@ public class EnemyController : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
         canvas.transform.Rotate(0f, 180f, 0f);
         facingRight = !facingRight;
-
     }
 
     private void OnTakeDamageListener(int currentLife, int damage)
@@ -72,10 +71,5 @@ public class EnemyController : MonoBehaviour
     public void SetPlayer(GameObject _player)
     {
         player = _player;
-    }
-
-    public GameObject GetPlayer()
-    {
-        return player;
     }
 }

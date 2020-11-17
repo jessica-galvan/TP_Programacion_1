@@ -35,27 +35,22 @@ public class MenuManager : MonoBehaviour
         buttonQuit.onClick.AddListener(OnClickQuitHandler);
         buttonHelpGoBack.onClick.AddListener(OnClickGoBackHandler);
         buttonCreditsGoBack.onClick.AddListener(OnClickGoBackHandler);
-        
-        //Siempre inicia con el menu principal
-        OnClickGoBackHandler();
+        OnClickGoBackHandler(); //Siempre inicia con el menu principal, es un seteo por si algo queda mal acomodado en el Scene
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !mainMenuCheck) //Esto es porque si no estan en uno de los sub menus, pueden volver para atras con Escape
         {
-            if (!mainMenuCheck)
-            {
-                OnClickGoBackHandler();
-            }
+            OnClickGoBackHandler();
         }
     }
 
-    private void OnClickPlayHandler()
+    private void OnClickPlayHandler() //inicia el juego
     {
         SceneManager.LoadScene(gameSceneName);
     }
-    private void OnClickHelpHandler()
+    private void OnClickHelpHandler() //Si apretan HELP
     {
         mainMenu.SetActive(false);
         helpMenu.SetActive(true);
@@ -63,7 +58,7 @@ public class MenuManager : MonoBehaviour
         mainMenuCheck = false;
     }
 
-    private void OnClickCreditsHandler()
+    private void OnClickCreditsHandler() //Si apretan CREDITOS
     {
         mainMenu.SetActive(false);
         helpMenu.SetActive(false);
@@ -71,7 +66,7 @@ public class MenuManager : MonoBehaviour
         mainMenuCheck = false;
     }
 
-    private void OnClickGoBackHandler()
+    private void OnClickGoBackHandler() //No importa en cual de los dos este, Si apretan Go Back, vuelve para el menu principal
     {
         mainMenu.SetActive(true);
         helpMenu.SetActive(false);
@@ -79,9 +74,10 @@ public class MenuManager : MonoBehaviour
         mainMenuCheck = true;
     }
 
-    private void OnClickQuitHandler()
+    private void OnClickQuitHandler()  // Cierra el Menu
     {
         Application.Quit();
+        Debug.Log("Cerramos el juego");
     }
 
 }

@@ -18,6 +18,7 @@ public class ManaUp : MonoBehaviour
         rechargeSound = GetComponent<AudioSource>();
         animatorController = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        sprite.enabled = false;
     }
 
     private void Update()
@@ -32,24 +33,19 @@ public class ManaUp : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            //Si tiene un Player Controller (deberia tenerlo)
             PlayerController player = collision.GetComponent<PlayerController>();
-            if (player != null & canRecharge)
+            if (player != null & canRecharge)  //Si tiene un Player Controller (deberia tenerlo)
             {
-                //Si el mana del player es menor al mana maximo
-                if (player.CanRechargeMana())
+                if (player.CanRechargeMana()) //Si el mana del player es menor al mana maximo
                 {
-                    //Solo deberia curar una vez. 
-                    canRecharge = false;
-                    //Desactivame el animator y el sprite renderer. Además toca el sonido.
-                    sprite.enabled = false;
+                    canRecharge = false; //Solo deberia curar una vez. 
+                    sprite.enabled = false; //Desactivame el animator y el sprite renderer. Además toca el sonido.
                     animatorController.enabled = false;
                     manaLight.SetActive(false);
-                    rechargeSound.Play();
-                    //Recarga el mana
-                    player.RechargeMana(manaRecharge);
-                    canDestroy = true;
-                    timer += Time.time;
+                    rechargeSound.Play(); 
+                    player.RechargeMana(manaRecharge); //Recarga el mana
+                    canDestroy = true; //Empeza el timer
+                    timer += Time.time; //Set time
                 }
             }
         }
