@@ -2101,18 +2101,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1953682974, guid: f44bf3e25cf69b146a39e41087952271, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953682974, guid: f44bf3e25cf69b146a39e41087952271, type: 3}
-      propertyPath: m_Intensity
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 1953682974, guid: f44bf3e25cf69b146a39e41087952271, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[3]
-      value: 542050691
-      objectReference: {fileID: 0}
     - target: {fileID: 4643241683810020395, guid: f44bf3e25cf69b146a39e41087952271,
         type: 3}
       propertyPath: m_Name
@@ -4381,8 +4369,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 331803581, guid: fb1557be7a5dc1c48b3521dbbcc9882d, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 331803581, guid: fb1557be7a5dc1c48b3521dbbcc9882d, type: 3}
       propertyPath: m_PointLightInnerAngle
       value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 331803581, guid: fb1557be7a5dc1c48b3521dbbcc9882d, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[2]
+      value: 718143559
       objectReference: {fileID: 0}
     - target: {fileID: 435619329345401612, guid: fb1557be7a5dc1c48b3521dbbcc9882d,
         type: 3}
@@ -4709,7 +4705,7 @@ PrefabInstance:
     - target: {fileID: 5787261840049859411, guid: 91602b89efc374c4d82f99b78f052d96,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5787261840049859414, guid: 91602b89efc374c4d82f99b78f052d96,
         type: 3}
