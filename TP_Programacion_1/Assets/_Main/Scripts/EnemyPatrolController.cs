@@ -66,7 +66,7 @@ public class EnemyPatrolController : MonoBehaviour
     {
         //CUANDO VEAS AL PLAYER
         RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, transform.right, playerDetectionDistance, playerDetectionList);
-        if (hitPlayer)
+        if (hitPlayer && !gameManager.isFreeze)
         {
             //Perseguilo
             Vector2.MoveTowards(player.transform.position, transform.position, speed * 2);

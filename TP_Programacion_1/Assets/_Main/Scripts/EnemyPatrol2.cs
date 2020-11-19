@@ -23,7 +23,6 @@ public class EnemyPatrol2 : MonoBehaviour
     private bool checkDirection;
     private bool canReturnToSpawnPoint;
 
-
     [Header("Prefab Settings")]
     [SerializeField] private Transform groundDetectionPoint;
     [SerializeField] private Transform attackPoint;
@@ -50,7 +49,7 @@ public class EnemyPatrol2 : MonoBehaviour
     private bool canMove;
     private bool facingRight;
     private float moveTimer = 0f;
-
+    private GameManager gameManager;
 
     void Start()
     {
@@ -69,83 +68,86 @@ public class EnemyPatrol2 : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, transform.right, playerDetectionDistance, playerDetectionList); 
-        if (hitPlayer) //CUANDO VEAS AL PLAYER
+        if (!gameManager.isFreeze)
         {
-            if (!followingPlayer)  //Desactiva las barreras de patruyar para perseguirlo
+            RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, transform.right, playerDetectionDistance, playerDetectionList);
+            if (hitPlayer) //CUANDO VEAS AL PLAYER
             {
-                statusBarriers(false);
-                followingPlayer = true;
-                checkDirection = true;
-                canReturnToSpawnPoint = false;
-                currentSpeed = followingSpeed;
-            } 
-
-            float distance = Vector2.Distance(hitPlayer.collider.transform.position, attackPoint.position);
-            if (distance <= attackRadius) //Y si esta a una distancia menor o igual al radio de ataque, dejate de mover. 
-            {
-                canMove = false;
-                if (canAttack && Time.time > cooldownTimer)
+                if (!followingPlayer)  //Desactiva las barreras de patruyar para perseguirlo
                 {
-                    Attack();
-                }
-            } 
-
-            if (!canMove && Time.time > moveTimer && distance > attackRadius) //Termino animación ataque? Se puede mover
-            {
-                canMove = true;
-            }
-        }
-        else   //Si dejaste de ver al player, espera un rato y patrulla
-        {
-            if (followingPlayer) //Si estabas siguiendo al player
-            {
-                checkPlayerTimer = checkPlayerTimeDuration + Time.time;
-                canMove = false;
-                currentSpeed = normalSpeed;
-                followingPlayer = false;
-            }
-
-            if (!canReturnToSpawnPoint && Time.time > checkPlayerTimer) //PERO espera unos segundos para al spawnPoint
-            {
-                canReturnToSpawnPoint = true;
-                canMove = true;
-            }
-
-            if (canReturnToSpawnPoint && !isBarrierActive) //Ahora podes volver al punto de spawn
-            {          
-                if (checkDirection) //hace un check de la direcion del spawnpoint
-                {
-                    checkDirection = false; //pero solo una vez
-                    checkSpawnPointDirection();
-                }
-
-                float difMax = Vector2.Distance(transform.position, spawnPoint);  //cuando estes cerca, activa las barreras asi patruyas
-                if (difMax < 1f)
-                {
+                    statusBarriers(false);
+                    followingPlayer = true;
+                    checkDirection = true;
                     canReturnToSpawnPoint = false;
-                    statusBarriers(true);
+                    currentSpeed = followingSpeed;
+                }
+
+                float distance = Vector2.Distance(hitPlayer.collider.transform.position, attackPoint.position);
+                if (distance <= attackRadius) //Y si esta a una distancia menor o igual al radio de ataque, dejate de mover. 
+                {
+                    canMove = false;
+                    if (canAttack && Time.time > cooldownTimer)
+                    {
+                        Attack();
+                    }
+                }
+
+                if (!canMove && Time.time > moveTimer && distance > attackRadius) //Termino animación ataque? Se puede mover
+                {
+                    canMove = true;
                 }
             }
-        }
+            else   //Si dejaste de ver al player, espera un rato y patrulla
+            {
+                if (followingPlayer) //Si estabas siguiendo al player
+                {
+                    checkPlayerTimer = checkPlayerTimeDuration + Time.time;
+                    canMove = false;
+                    currentSpeed = normalSpeed;
+                    followingPlayer = false;
+                }
 
-        animatorController.SetBool("Walk", canMove); //Mientras canMove sea true, vas a caminar
+                if (!canReturnToSpawnPoint && Time.time > checkPlayerTimer) //PERO espera unos segundos para al spawnPoint
+                {
+                    canReturnToSpawnPoint = true;
+                    canMove = true;
+                }
 
-        RaycastHit2D hitPatrol = Physics2D.Raycast(groundDetectionPoint.position, Vector2.down, groundDetectionDistance, groundDetectionList);
-        if (!hitPatrol)      //GroundDetection esta funcionando todo el tiempo, si deja de detectar ground, va a flippear.
-        {
-            BackFlip(); 
-        }
-        
-        if(!canAttack && Time.time > cooldownTimer) //Cooldown Attack Timer
-        {
-            canAttack = true;
+                if (canReturnToSpawnPoint && !isBarrierActive) //Ahora podes volver al punto de spawn
+                {
+                    if (checkDirection) //hace un check de la direcion del spawnpoint
+                    {
+                        checkDirection = false; //pero solo una vez
+                        checkSpawnPointDirection();
+                    }
+
+                    float difMax = Vector2.Distance(transform.position, spawnPoint);  //cuando estes cerca, activa las barreras asi patruyas
+                    if (difMax < 1f)
+                    {
+                        canReturnToSpawnPoint = false;
+                        statusBarriers(true);
+                    }
+                }
+            }
+
+            animatorController.SetBool("Walk", canMove); //Mientras canMove sea true, vas a caminar
+
+            RaycastHit2D hitPatrol = Physics2D.Raycast(groundDetectionPoint.position, Vector2.down, groundDetectionDistance, groundDetectionList);
+            if (!hitPatrol)      //GroundDetection esta funcionando todo el tiempo, si deja de detectar ground, va a flippear.
+            {
+                BackFlip();
+            }
+
+            if (!canAttack && Time.time > cooldownTimer) //Cooldown Attack Timer
+            {
+                canAttack = true;
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        if (canMove)
+        if (canMove && !gameManager.isFreeze)
         {
             rb2d.velocity = transform.right * currentSpeed;
         }
@@ -200,5 +202,9 @@ public class EnemyPatrol2 : MonoBehaviour
     {
         Destroy(barrierLeft);
         Destroy(barrierRight);
+    }
+    public void SetGameManager(GameManager _gameManager)
+    {
+        gameManager = _gameManager;
     }
 }

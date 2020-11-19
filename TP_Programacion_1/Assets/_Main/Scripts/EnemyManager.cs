@@ -37,6 +37,12 @@ public class EnemyManager : MonoBehaviour
                 enemyStatic.SetPlayer(player);
                 enemyStatic.SetGameManager(gameManager);
             }
+
+            EnemyPatrol2 enemyPatrol = enemies[i].GetComponent<EnemyPatrol2>();
+            if (enemyPatrol != null)
+            {
+                enemyPatrol.SetGameManager(gameManager);
+            }
         }
     }
 }
