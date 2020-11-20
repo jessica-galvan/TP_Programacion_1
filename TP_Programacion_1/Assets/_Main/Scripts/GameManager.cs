@@ -9,23 +9,28 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerController player = null;
     [SerializeField] private GameObject victoryScreen = null;
     [SerializeField] private GameObject gameOverScreen = null;
-    [SerializeField] private GameObject restartButton = null;
+    private Vector2 playerSpawnPosition;
+    private Vector2 playerCurrentCheckpoint;
+    [SerializeField] private float restartTimer = 2f;
+    [SerializeField] private int lifesRespawn = 2;
     //[SerializeField] private int points; 
+    public bool isFreeze;
+
+    //Extras
     private bool gameEnd = false;
-    private float restartTimer = 2f;
     private float restartCooldown = 0f;
     private int enemyCounterLevel;
     private int enemyCounter;
     private Animator gameOverAnimator;
-    public bool isFreeze;
     public UnityEvent OnChangeCurrentEnemies = new UnityEvent();
 
     void Start()
     {
         player.lifeController.OnDie.AddListener(OnPlayerDieListener);
+        playerSpawnPosition = player.GetComponent<Transform>().position;
+        playerCurrentCheckpoint = playerSpawnPosition;
         victoryScreen.SetActive(false);
         gameOverScreen.SetActive(false);
-        restartButton.SetActive(false);
         gameOverAnimator = gameOverScreen.GetComponent<Animator>();
         enemyCounter = enemyCounterLevel;
         isFreeze = false;
@@ -40,7 +45,7 @@ public class GameManager : MonoBehaviour
 
         if(isFreeze && gameEnd && restartCooldown < Time.time)
         {
-            restartButton.SetActive(true);
+            RestartLastCheckpoint();
         }
     }
 
@@ -64,21 +69,28 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("dead1");
         gameEnd = true;
         isFreeze = true;
         gameOverScreen.SetActive(true);
         gameOverAnimator.SetBool("isDead", true);
-        Debug.Log("dead2");
         restartCooldown = Time.time + restartTimer;
+    }
+
+    public void ChangeSpawnPosition(Vector2 checkpoint)
+    {
+        playerCurrentCheckpoint = checkpoint;
     }
 
     public void RestartLastCheckpoint()
     {
-        Debug.Log("LastCheckpoint");
+        gameEnd = false;
+        isFreeze = false;
+        //playerCurrentCheckpoint.y += 1; //para que tenga un offset de cuando vuelve, pero 1 en int es muuy grande la caida
+        player.SetCurrentPosition(playerCurrentCheckpoint);
+        player.PlayerActive(true);
+        player.lifeController.Respawn(lifesRespawn);
         gameOverScreen.SetActive(false);
         gameOverAnimator.SetBool("isDead", false);
-        //LOAD LAST CHECKPOINT
     }
 
     private void OnPlayerDieListener()
@@ -101,5 +113,4 @@ public class GameManager : MonoBehaviour
     {
         return enemyCounter;
     }
-
 }

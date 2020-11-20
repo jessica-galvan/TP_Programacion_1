@@ -10,8 +10,9 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Health Settings")]
     public LifeController lifeController = null;
-    [SerializeField] GameManager gameManager = null;
+    [SerializeField] private GameManager gameManager = null;
     private Animator animatorController = null;
+    [SerializeField] private int revive = 2;
 
     [Header("Movement Settings")]
     [SerializeField] private float speed = 0f;
@@ -132,8 +133,6 @@ public class PlayerController : MonoBehaviour
         facingRight = !facingRight;
     }
 
-
-
     private void OnDieListener()
     {
 
@@ -180,6 +179,16 @@ public class PlayerController : MonoBehaviour
         currentMana += mana;
         OnChangeMana.Invoke();
         rechargeAmmoSound.Play();
+    }
+
+    public void PlayerActive(bool status)
+    {
+        this.gameObject.SetActive(status);
+    }
+
+    public void SetCurrentPosition(Vector2 spawnPosition)
+    {
+        transform.position = spawnPosition;
     }
 }
 

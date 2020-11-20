@@ -48,16 +48,30 @@ public class LifeController : MonoBehaviour
             if (currentLife > maxLife)
             {
                 currentLife = maxLife;
+                OnChangeCurrentLife.Invoke();
             }
-            OnChangeCurrentLife.Invoke();
-        } 
+        }
+    }
+
+    public void Respawn(int heal)
+    {
+        currentLife = heal;
+        OnChangeCurrentLife.Invoke();
     }
 
     public void Die()
     {
         OnDie.Invoke();
         Instantiate(death, transform.position, transform.rotation);
-        Destroy(gameObject);
+        var player = GetComponent<PlayerController>();
+        if(player != null)
+        {
+            player.PlayerActive(false);
+
+        } else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public float GetCurrentLifePercentage()

@@ -23,7 +23,6 @@ public class PauseMenu : MonoBehaviour
 
     [Header("Victory & GameOver")]
     [SerializeField] private Button buttonReturnMenu;
-    [SerializeField] private Button buttonRestart;
 
     //Extras
     private bool isActive;
@@ -39,7 +38,6 @@ public class PauseMenu : MonoBehaviour
         buttonGoBack.onClick.AddListener(OnClickGoBackHandler);
         buttonMainMenu.onClick.AddListener(OnClickMenuHandler);
         buttonReturnMenu.onClick.AddListener(OnClickMenuHandler);
-        buttonRestart.onClick.AddListener(OnClickRestartHandler);
     }
 
     void Update()
@@ -117,10 +115,4 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Se cierra el juego");
     }
-
-    private void OnClickRestartHandler()
-    {
-        //Last checkppint;
-    }
-
 }
