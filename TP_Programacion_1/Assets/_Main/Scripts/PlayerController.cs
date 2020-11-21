@@ -16,15 +16,20 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField] private float speed = 0f;
-    [SerializeField] private float jumpForce;
     [SerializeField] private Vector3 offset = Vector3.zero;
     private float movement = 0f;
     private bool facingRight = true; //facingRight es para chequear en que sentido esta mirando el personaje. 
     private Rigidbody2D myRigidbody;
+
+    [Header("Jump Settings")]
+    [SerializeField] private Transform groundDetectionPoint;
+    [SerializeField] private LayerMask groundDetectionList;
+    [SerializeField] private float groundDetectionDistance = 1f;
+    [SerializeField] private float jumpForce;
     private bool isGrounded;
     private bool canJump;
 
-    [Header("Attack Settings")]
+    [Header("Attack Magic Settings")]
     [SerializeField] private int maxMana = 6;
     [SerializeField] private int currentMana;
     [SerializeField] private GameObject bullet = null;
@@ -33,9 +38,20 @@ public class PlayerController : MonoBehaviour
     private float cooldownTimer = 0f;
     private float manaCooldownTimer = 0f;
     private bool canRechargeMana;
+    
+
+    [Header("Attack Phisical Settings")]
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private LayerMask enemyDetectionList;
+    [SerializeField] private float attackRadius = 1f;
+    [SerializeField] private int damage = 5;
+    [SerializeField] private float slashCooldown = 1f;
+    private float slashCooldownTimer = 0f;
+    private bool canAttack;
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
+    [SerializeField] private AudioSource attackSound = null;
     [SerializeField] private AudioSource rechargeAmmoSound = null;
     [SerializeField] private AudioSource negativeActionSound = null;
     [SerializeField] private AudioSource damageSound = null;
@@ -47,20 +63,29 @@ public class PlayerController : MonoBehaviour
        animatorController = GetComponent<Animator>();
        lifeController = GetComponent<LifeController>();
        currentMana = maxMana;
-       lifeController.OnDie.AddListener(OnDieListener);
+       canAttack = true;
        lifeController.OnTakeDamage += OnTakeDamageListener;
-       //DontDestroyOnLoad(gameObject); //Si queremos que player al cambiar de nivel no se destruya, parte del tema seria este codigo
     }
 
     void Update()
     {
         if (!gameManager.isFreeze)
         {
-            //JUMP
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            //CHECK GROUND
+            RaycastHit2D checkGround = Physics2D.Raycast(groundDetectionPoint.position, Vector2.down, groundDetectionDistance, groundDetectionList);
+            isGrounded = checkGround; //mientras que este tocando el suelo, va a poder saltar. 
+            Debug.Log(isGrounded);
+
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded) //JUMP
             {
                 canJump = true;
             }
+
+            if (!canAttack && Time.time > cooldownTimer) //Cooldown Attack Timer
+            {
+                canAttack = true;
+            }
+
             //MOVEMENT
             movement = Input.GetAxisRaw("Horizontal") * (speed * Time.deltaTime); //El valor va entre -1 (izquierda) y 1 (derecha). 
             transform.Translate(Mathf.Abs(movement), 0, 0); //El Mathf.Abs -> Math Absolute le saca los signos. Esto sirve porque al flippear el personaje siempre se mueve hacia adelante y el Flip me lo rota. 
@@ -74,7 +99,7 @@ public class PlayerController : MonoBehaviour
                 Flip();
             }
 
-            //Disparo
+            //Ataque Mágico
             if (Input.GetMouseButtonDown(0) && Time.time > cooldownTimer && currentMana > 0) //Si recibe input de disparo y el cooldown ya no esta y además hay ammo...
             {
                 Shoot();
@@ -83,6 +108,13 @@ public class PlayerController : MonoBehaviour
             {
                 negativeActionSound.Play();
             }
+
+            //Ataque Fisico
+            if (Input.GetMouseButtonDown(1) && Time.time > slashCooldownTimer && canAttack)
+            {
+                Attack();
+
+            } 
 
             //RecargarMana cuando queda en cero hasta que tenga la mitad
             if (gameManager.CheckIfTheyAreEnemies() && currentMana == 0 & !canRechargeMana)
@@ -127,15 +159,31 @@ public class PlayerController : MonoBehaviour
         OnChangeMana.Invoke();
     }
 
+    private void Attack()
+    {
+        canAttack = false;
+        Debug.Log("Attack");
+        //animatorController.SetTrigger("IsPhisicalAttacking");
+        //attackSound.Play();
+        Collider2D collider = Physics2D.OverlapCircle((Vector2)attackPoint.position, attackRadius, enemyDetectionList);
+        if (collider != null)
+        {
+            LifeController life = collider.gameObject.GetComponent<LifeController>();
+            if (life != null)
+            {
+                Debug.Log("Daño al enemigo");
+                life.TakeDamage(damage);
+                RechargeMana(1);
+            }
+        }
+        canAttack = true;
+        slashCooldownTimer = slashCooldown + Time.time;  //Comienza el attack cooldown
+    }
+
     void Flip() //Solo flippea al personaje
     {
         transform.Rotate(0f, 180f, 0f);
         facingRight = !facingRight;
-    }
-
-    private void OnDieListener()
-    {
-
     }
 
     private void OnTakeDamageListener(int currentLife, int damage)
@@ -144,14 +192,10 @@ public class PlayerController : MonoBehaviour
         damageSound.Play();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) 
+    public bool CanHeadKill()
     {
-     if(collision.gameObject.CompareTag("Ground"))
-     {
-         isGrounded = true;
-     }   
+        return !isGrounded;
     }
-
 
     //MANA
     public float GetManaPercentage()
@@ -176,9 +220,12 @@ public class PlayerController : MonoBehaviour
 
     public void RechargeMana(int mana)
     {
-        currentMana += mana;
-        OnChangeMana.Invoke();
-        rechargeAmmoSound.Play();
+        if(currentMana <= (maxMana - mana))
+        {
+            currentMana += mana;
+            OnChangeMana.Invoke();
+            rechargeAmmoSound.Play();
+        }
     }
 
     public void PlayerActive(bool status)

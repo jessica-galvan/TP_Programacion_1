@@ -48,8 +48,8 @@ public class LifeController : MonoBehaviour
             if (currentLife > maxLife)
             {
                 currentLife = maxLife;
-                OnChangeCurrentLife.Invoke();
             }
+            OnChangeCurrentLife.Invoke();
         }
     }
 

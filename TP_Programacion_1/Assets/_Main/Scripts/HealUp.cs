@@ -38,7 +38,6 @@ public class HealUp : MonoBehaviour
             {
                 canHeal = false;                 //Solo deberia curar una vez. 
                 sprite.enabled = false;                 //Desactivame el animator y el sprite renderer. Además toca el sonido.
-                //animatorController.enabled = false;
                 healLight.SetActive(false);
                 healSound.Play();
                 life.TakeHeal(heal);                 //Cura al jugador, cambia la variable de destruiye y setear el timer. 

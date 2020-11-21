@@ -52,6 +52,7 @@ public class EnemyStaticController : MonoBehaviour
 
     private void Shoot()
     {
+        canShoot = false;
         shootingSound.Play();
         animatorController.SetTrigger("IsShooting");
         Instantiate(bullet, transform.position + offset, transform.rotation);

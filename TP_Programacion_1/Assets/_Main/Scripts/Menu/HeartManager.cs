@@ -10,7 +10,6 @@ public class HeartManager : MonoBehaviour
     [SerializeField] private LifeController lifeController = null;
     [SerializeField] private List<GameObject> hearts = new List<GameObject>();
     [SerializeField] private GameObject heart = null;
-    //[SerializeField] private Sprite[] heartsImage = new Sprite[2]; //Esto seria si hubiera dos tipos de corazones
     private int currentHearts;
 
     void Start()

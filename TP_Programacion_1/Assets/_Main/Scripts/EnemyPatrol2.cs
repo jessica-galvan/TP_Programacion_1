@@ -73,7 +73,8 @@ public class EnemyPatrol2 : MonoBehaviour
             RaycastHit2D hitPlayer = Physics2D.Raycast(transform.position, transform.right, playerDetectionDistance, playerDetectionList);
             if (hitPlayer) //CUANDO VEAS AL PLAYER
             {
-                if (!followingPlayer)  //Desactiva las barreras de patruyar para perseguirlo
+                var playerController = hitPlayer.collider.GetComponent<PlayerController>();
+                if (!followingPlayer && playerController)  //Desactiva las barreras de patruyar para perseguirlo
                 {
                     statusBarriers(false);
                     followingPlayer = true;
@@ -131,6 +132,11 @@ public class EnemyPatrol2 : MonoBehaviour
             }
 
             animatorController.SetBool("Walk", canMove); //Mientras canMove sea true, vas a caminar
+            if (canMove)
+            {
+                animatorController.SetFloat("Speed", currentSpeed);
+            }
+
 
             RaycastHit2D hitPatrol = Physics2D.Raycast(groundDetectionPoint.position, Vector2.down, groundDetectionDistance, groundDetectionList);
             if (!hitPatrol)      //GroundDetection esta funcionando todo el tiempo, si deja de detectar ground, va a flippear.

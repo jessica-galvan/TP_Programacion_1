@@ -1,5 +1,76 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &898057851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 898057852}
+  - component: {fileID: 898057854}
+  - component: {fileID: 898057853}
+  m_Layer: 9
+  m_Name: HeadKillerZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &898057852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898057851}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5787261840049859416}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &898057854
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898057851}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.040893465, y: 0.2781241}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.55644625, y: 0.093752384}
+  m_EdgeRadius: 0
+--- !u!114 &898057853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898057851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adcdacf40b2ca2349b44077840f79289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBeKilled: 1
 --- !u!1 &1433766463571121059
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +312,7 @@ RectTransform:
   m_Children:
   - {fileID: 1780177662691715762}
   m_Father: {fileID: 5787261840049859416}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -353,6 +424,7 @@ Transform:
   - {fileID: 9183791398283362736}
   - {fileID: 6246200215725301355}
   - {fileID: 5511854871294019161}
+  - {fileID: 898057852}
   - {fileID: 9081780203738098606}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -445,8 +517,6 @@ MonoBehaviour:
   bodyDamage: 1
   facingRight: 0
   canAttack: 0
-  player: {fileID: 0}
-  gameManager: {fileID: 0}
   canvas: {fileID: 4075000003090972985}
   shootingSound: {fileID: 7578392688383166014}
   damageSound: {fileID: 7578392686903350338}
@@ -485,8 +555,6 @@ MonoBehaviour:
     m_Bits: 1024
   groundDetectionDistance: 0.5
   checkPlayerTimeDuration: 5
-  player: {fileID: 0}
-  gameManager: {fileID: 0}
   groundDetectionPoint: {fileID: 9183791398283362736}
   attackPoint: {fileID: 5511854871294019161}
   playerDetectionPoint: {fileID: 6246200215725301355}
