@@ -9,7 +9,7 @@ public class HealUp : MonoBehaviour
     [SerializeField] private int heal= 0;
     [SerializeField] private float timer = 1;
     private  bool canDestroy = false;
-    private Animator animatorController;
+    //private Animator animatorController;
     private AudioSource healSound = null;
     private SpriteRenderer sprite;
     private bool canHeal = true;
@@ -17,7 +17,7 @@ public class HealUp : MonoBehaviour
     private void Start()
     {
         healSound = GetComponent<AudioSource>();
-        animatorController = GetComponent<Animator>();
+        //animatorController = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -38,7 +38,7 @@ public class HealUp : MonoBehaviour
             {
                 canHeal = false;                 //Solo deberia curar una vez. 
                 sprite.enabled = false;                 //Desactivame el animator y el sprite renderer. Además toca el sonido.
-                animatorController.enabled = false;
+                //animatorController.enabled = false;
                 healLight.SetActive(false);
                 healSound.Play();
                 life.TakeHeal(heal);                 //Cura al jugador, cambia la variable de destruiye y setear el timer. 

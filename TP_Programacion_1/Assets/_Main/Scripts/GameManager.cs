@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private Vector2 playerCurrentCheckpoint;
     [SerializeField] private float restartTimer = 2f;
     [SerializeField] private int lifesRespawn = 2;
-    //[SerializeField] private int points; 
+    [SerializeField] private int collectable; 
     public bool isFreeze;
 
     //Extras
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private int enemyCounter;
     private Animator gameOverAnimator;
     public UnityEvent OnChangeCurrentEnemies = new UnityEvent();
+    public UnityEvent OnChangeCollectable = new UnityEvent();
 
     void Start()
     {
@@ -112,5 +113,11 @@ public class GameManager : MonoBehaviour
     public int GetEnemiesAmount()
     {
         return enemyCounter;
+    }
+
+    public void PickUpCollectable()
+    {
+        collectable++;
+        OnChangeCollectable.Invoke();
     }
 }

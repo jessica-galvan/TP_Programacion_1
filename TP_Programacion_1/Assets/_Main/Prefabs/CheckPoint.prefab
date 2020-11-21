@@ -72,8 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 1128818861
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4184586705055241392, guid: 32726eef68207514bbede9c6509379b5,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35a2798e23657534baa97b11fea437d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,8 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   flowerImages:
-  - {fileID: -4184586705055241392, guid: 32726eef68207514bbede9c6509379b5, type: 3}
-  - {fileID: -8187355101989356663, guid: 27a107940057e8743a507269b18a691a, type: 3}
+  - {fileID: 21300000, guid: 35a2798e23657534baa97b11fea437d8, type: 3}
+  - {fileID: 21300000, guid: 8968395d741cb204985d79a8f7811478, type: 3}
 --- !u!61 &3199462627937307558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -113,16 +112,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.079254225, y: 0}
+  m_Offset: {x: 0.025628157, y: 0.022677422}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 0.3675, y: 0.7025}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48149154, y: 0.64}
+  m_Size: {x: 0.543854, y: 0.6966928}
   m_EdgeRadius: 0
