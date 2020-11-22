@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 435619329345401612}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &289688955
 AudioSource:
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 331803580}
   - component: {fileID: 331803581}
   m_Layer: 0
-  m_Name: Point Light 2D
+  m_Name: PhysicalAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 435619329345401612}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &509123785
 AudioSource:
@@ -355,7 +355,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 435619329345401612}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &833227428
 AudioSource:
@@ -613,10 +613,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 6695244651087809524}
   - {fileID: 509123786}
   - {fileID: 289688956}
   - {fileID: 833227429}
-  - {fileID: 6695244651087809524}
   - {fileID: 4816819791209207896}
   - {fileID: 1595172222}
   - {fileID: 331803580}
@@ -740,6 +740,9 @@ MonoBehaviour:
   OnChangeCurrentLife:
     m_PersistentCalls:
       m_Calls: []
+  OnRespawnLife:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &435619329345401613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -835,7 +838,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 435619329345401612}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6957815278957276229
 AudioSource:

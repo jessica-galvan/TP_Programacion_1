@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerController player = null;
     [SerializeField] private GameObject victoryScreen = null;
     [SerializeField] private GameObject gameOverScreen = null;
-    private Vector2 playerSpawnPosition;
-    private Vector2 playerCurrentCheckpoint;
     [SerializeField] private float restartTimer = 2f;
     [SerializeField] private int lifesRespawn = 2;
     [SerializeField] private int collectable; 
@@ -21,6 +19,8 @@ public class GameManager : MonoBehaviour
     private float restartCooldown = 0f;
     private int enemyCounterLevel;
     private int enemyCounter;
+    private Vector2 playerSpawnPosition;
+    private Vector2 playerCurrentCheckpoint;
     private Animator gameOverAnimator;
     public UnityEvent OnChangeCurrentEnemies = new UnityEvent();
     public UnityEvent OnChangeCollectable = new UnityEvent();
@@ -83,6 +83,11 @@ public class GameManager : MonoBehaviour
         playerCurrentCheckpoint = checkpoint;
     }
 
+    public Vector2 GetCurrentCheckpoint()
+    {
+        return playerCurrentCheckpoint;
+    }
+
     public void RestartLastCheckpoint()
     {
         gameEnd = false;
@@ -98,7 +103,7 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerDieListener()
     {
-        GameOver();  //Por ahora, mori
+        GameOver();
     }
 
     public void addOneInEnemyCounter()

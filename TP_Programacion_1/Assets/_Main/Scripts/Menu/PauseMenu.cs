@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject helpMenu;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private AudioSource musicLevel = null;
+    [SerializeField] private float lowerVolume = 1f;
 
     [Header("PauseMenu Settings")]
     [SerializeField] private Button buttonResume;
@@ -68,6 +70,7 @@ public class PauseMenu : MonoBehaviour
         isActive = true;
         mainMenuActive = true;
         pauseMenu.SetActive(true);
+        musicLevel.volume -= lowerVolume;
     }
 
     private void GoBack()
@@ -86,6 +89,7 @@ public class PauseMenu : MonoBehaviour
         helpMenu.SetActive(false);
         mainMenu.SetActive(true);
         pauseMenu.SetActive(false);
+        musicLevel.volume += lowerVolume;
     }
 
     private void OnClickHelpHandler()

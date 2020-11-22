@@ -16,6 +16,7 @@ public class HeartManager : MonoBehaviour
     {
         lifeController = player.GetComponent<LifeController>();
         lifeController.OnChangeCurrentLife.AddListener(OnCurrentLifeListener);
+        lifeController.OnRespawnLife.AddListener(OnRespawnLifeListener);
 
         currentHearts = lifeController.GetMaxLife(); //Como es un solo nivel, siempre traemos el maximo de vida
 
@@ -46,6 +47,15 @@ public class HeartManager : MonoBehaviour
             {
                 hearts[i].SetActive(true);
             }
+        }
+    }
+
+    private void OnRespawnLifeListener()
+    {
+        currentHearts = lifeController.GetCurrentLife();
+        for (int i = 0; i < currentHearts; i++)
+        {
+            hearts[i].SetActive(true);
         }
     }
 }

@@ -17,6 +17,7 @@ public class LifeController : MonoBehaviour
     //LISTENERS
     public UnityEvent OnDie = new UnityEvent();
     public UnityEvent OnChangeCurrentLife = new UnityEvent();
+    public UnityEvent OnRespawnLife = new UnityEvent();
     public Action<int, int> OnTakeDamage;
 
     void Start()
@@ -42,7 +43,7 @@ public class LifeController : MonoBehaviour
 
     public void TakeHeal(int heal)
     {
-        if (currentLife < maxLife)
+        if(currentLife < maxLife)
         {
             currentLife += heal;
             if (currentLife > maxLife)
@@ -55,8 +56,9 @@ public class LifeController : MonoBehaviour
 
     public void Respawn(int heal)
     {
+        isDead = false;
         currentLife = heal;
-        OnChangeCurrentLife.Invoke();
+        OnRespawnLife.Invoke();
     }
 
     public void Die()
@@ -67,7 +69,6 @@ public class LifeController : MonoBehaviour
         if(player != null)
         {
             player.PlayerActive(false);
-
         } else
         {
             Destroy(gameObject);
