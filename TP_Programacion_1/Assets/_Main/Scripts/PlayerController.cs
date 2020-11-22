@@ -74,7 +74,6 @@ public class PlayerController : MonoBehaviour
             //CHECK GROUND
             RaycastHit2D checkGround = Physics2D.Raycast(groundDetectionPoint.position, Vector2.down, groundDetectionDistance, groundDetectionList);
             isGrounded = checkGround; //mientras que este tocando el suelo, va a poder saltar. 
-            Debug.Log(isGrounded);
 
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded) //JUMP
             {

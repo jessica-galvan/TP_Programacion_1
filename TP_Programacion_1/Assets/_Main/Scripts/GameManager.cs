@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private Animator gameOverAnimator;
     public UnityEvent OnChangeCurrentEnemies = new UnityEvent();
     public UnityEvent OnChangeCollectable = new UnityEvent();
+    public UnityEvent OnPlayerRespawn = new UnityEvent();
 
     void Start()
     {
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         gameEnd = false;
         isFreeze = false;
+        OnPlayerRespawn.Invoke();
         //playerCurrentCheckpoint.y += 1; //para que tenga un offset de cuando vuelve, pero 1 en int es muuy grande la caida
         player.SetCurrentPosition(playerCurrentCheckpoint);
         player.PlayerActive(true);

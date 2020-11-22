@@ -61,7 +61,9 @@ public class EnemyPatrol2 : MonoBehaviour
         isBarrierActive = true;
         currentSpeed = normalSpeed;
         barrierLeft = Instantiate(invisibleBarrierPrefab, leftX.transform.position, transform.rotation);
+        barrierLeft.GetComponent<PatrolEnemyFlip>().SetIsPatrol(true);
         barrierRight = Instantiate(invisibleBarrierPrefab, rightX.transform.position, transform.rotation);
+        barrierRight.GetComponent<PatrolEnemyFlip>().SetIsPatrol(true);
         spawnPoint = transform.position;
         playerDetectionDistance = Vector2.Distance(transform.position, playerDetectionPoint.position);  //Con esto sacamos a cuanta distancia puede ver. 
     }
