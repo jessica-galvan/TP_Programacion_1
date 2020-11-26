@@ -9,7 +9,6 @@ public class HealUp : MonoBehaviour
     [SerializeField] private int heal= 0;
     [SerializeField] private float timer = 1;
     private  bool canDestroy = false;
-    //private Animator animatorController;
     private AudioSource healSound = null;
     private SpriteRenderer sprite;
     private bool canHeal = true;
@@ -17,7 +16,6 @@ public class HealUp : MonoBehaviour
     private void Start()
     {
         healSound = GetComponent<AudioSource>();
-        //animatorController = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }
 

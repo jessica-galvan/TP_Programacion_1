@@ -10,6 +10,7 @@ public class HeartManager : MonoBehaviour
     [SerializeField] private LifeController lifeController = null;
     [SerializeField] private List<GameObject> hearts = new List<GameObject>();
     [SerializeField] private GameObject heart = null;
+    private int playerCurrentHearts;
     private int currentHearts;
 
     void Start()
@@ -17,45 +18,48 @@ public class HeartManager : MonoBehaviour
         lifeController = player.GetComponent<LifeController>();
         lifeController.OnChangeCurrentLife.AddListener(OnCurrentLifeListener);
         lifeController.OnRespawnLife.AddListener(OnRespawnLifeListener);
+        playerCurrentHearts = lifeController.GetMaxLife(); //Como es un solo nivel, siempre traemos el maximo de vida
 
-        currentHearts = lifeController.GetMaxLife(); //Como es un solo nivel, siempre traemos el maximo de vida
-
-        for (int i = 0; i < currentHearts; i++) //Y con esto inicializamos la vida
+        for (int i = 0; i < playerCurrentHearts; i++) //Y con esto inicializamos la vida
         {
             GameObject newHeart = Instantiate(heart);
             newHeart.transform.parent = gameObject.transform;
             hearts.Add(newHeart);
+            currentHearts++;
         }
     }
 
     private void OnCurrentLifeListener() //Con esto se actualiza la vida
     {
-        currentHearts = lifeController.GetCurrentLife();
-        Debug.Log("cantidad actual: " + currentHearts);
-        if (currentHearts < hearts.Count) //Si la vida actual es menor a la cantidad de corazones en la lista
+        playerCurrentHearts = lifeController.GetCurrentLife();
+        if (playerCurrentHearts < currentHearts) //Si la vida actual es menor a la cantidad de corazones en la lista
         {
-            for (int i = 0; i < hearts.Count; i++)
+            for (int i = 0; i < currentHearts; i++)
             {
-                if (i > (currentHearts - 1))
+                if (playerCurrentHearts <= i)
                 {
                     hearts[i].SetActive(false);
+                    currentHearts--;
                 }
             }
         }
-        else //Si hay igual o más...
+        else
         {
-            for (int i = 0; i < currentHearts; i++)  //Reactivame los corazones
+            for (int i = 0; i < playerCurrentHearts; i++)  //Reactivame los corazones
             {
-                hearts[i].SetActive(true);
+                if (!hearts[i].activeSelf)
+                {
+                    hearts[i].SetActive(true);
+                    currentHearts++;
+                }
             }
-            Debug.Log("sumo");
         }
     }
 
     private void OnRespawnLifeListener()
     {
-        currentHearts = lifeController.GetCurrentLife();
-        for (int i = 0; i < currentHearts; i++)
+        playerCurrentHearts = lifeController.GetCurrentLife();
+        for (int i = 0; i < playerCurrentHearts; i++)
         {
             hearts[i].SetActive(true);
         }

@@ -65,11 +65,13 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
-        victory = true;
-        isFreeze = true;
-        victoryScreen.SetActive(true);
+        if (!victory)
+        {
+            victory = true;
+            isFreeze = true;
+            victoryScreen.SetActive(true);
+        }
     }
-
 
     public void GameOver()
     {
@@ -92,7 +94,6 @@ public class GameManager : MonoBehaviour
 
     public void RestartLastCheckpoint()
     {
-        Debug.Log("activado");
         gameOver = false;
         isFreeze = false;
         OnPlayerRespawn.Invoke();

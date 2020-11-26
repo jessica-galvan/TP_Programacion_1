@@ -735,6 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d646ed565d16f46bf0aec53454b081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   maxLife: 10
   currentLife: 0
   death: {fileID: 1753471898871332028, guid: e1c825100e5258b49a22724f249c5bad, type: 3}
@@ -742,6 +743,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnChangeCurrentLife:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRespawnLife:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &4142080222102873625

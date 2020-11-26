@@ -20,10 +20,14 @@ public class EnemyStaticController : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource shootingSound = null;
 
+    //Extra
+    private bool canTime;
+
     void Start()
     {
         animatorController = GetComponent<Animator>();
         enemyController = GetComponent<EnemyController>();
+        canTime = false;
     }
 
     void Update()
@@ -44,7 +48,7 @@ public class EnemyStaticController : MonoBehaviour
 
                 if (canShoot && Time.time > cooldownTimer) //cooldown y que ataque
                 {
-                    canShoot = false;
+            
                     Shoot();
                 }
             }
@@ -57,7 +61,7 @@ public class EnemyStaticController : MonoBehaviour
         shootingSound.Play();
         animatorController.SetTrigger("IsShooting");
         Instantiate(bullet, transform.position + offset, transform.rotation);
-        cooldownTimer += cooldown;
+        cooldownTimer = cooldown + Time.time;
         canShoot = true;
     }
 

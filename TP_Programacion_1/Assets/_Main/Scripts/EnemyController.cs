@@ -55,8 +55,9 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         LifeController life = collision.gameObject.GetComponent<LifeController>();
-        if (life != null)
+        if (life != null && !player.CanHeadKill())
         {
             life.TakeDamage(bodyDamage);
         }
