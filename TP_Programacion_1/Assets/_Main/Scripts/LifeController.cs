@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class LifeController : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager = null;
+
     [Header("Life Stats")]
     [SerializeField] private int maxLife = 0;
     [SerializeField] private int currentLife = 0;
@@ -27,7 +29,7 @@ public class LifeController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(currentLife > 0)
+        if(currentLife > 0 && !gameManager.isFreeze)
         {
             currentLife -= damage;
             OnTakeDamage.Invoke(currentLife, damage);
@@ -43,15 +45,15 @@ public class LifeController : MonoBehaviour
 
     public void TakeHeal(int heal)
     {
-        if(currentLife < maxLife)
+        if(currentLife < maxLife && !gameManager.isFreeze)
         {
             currentLife += heal;
             if (currentLife > maxLife)
             {
                 currentLife = maxLife;
             }
-            OnChangeCurrentLife.Invoke();
         }
+        OnChangeCurrentLife.Invoke();
     }
 
     public void Respawn(int heal)
@@ -98,5 +100,10 @@ public class LifeController : MonoBehaviour
             response = true;
         }
         return response;
+    }
+    
+    public void SetGameManager(GameManager _gameManager)
+    {
+        gameManager = _gameManager;
     }
 }

@@ -31,6 +31,7 @@ public class HeartManager : MonoBehaviour
     private void OnCurrentLifeListener() //Con esto se actualiza la vida
     {
         currentHearts = lifeController.GetCurrentLife();
+        Debug.Log("cantidad actual: " + currentHearts);
         if (currentHearts < hearts.Count) //Si la vida actual es menor a la cantidad de corazones en la lista
         {
             for (int i = 0; i < hearts.Count; i++)
@@ -47,6 +48,7 @@ public class HeartManager : MonoBehaviour
             {
                 hearts[i].SetActive(true);
             }
+            Debug.Log("sumo");
         }
     }
 

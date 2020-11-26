@@ -390,10 +390,9 @@ GameObject:
   - component: {fileID: 5787261840049859416}
   - component: {fileID: 5787261840049859415}
   - component: {fileID: 5787261840049859413}
-  - component: {fileID: 5787261840049859414}
   - component: {fileID: 4618852024556443092}
+  - component: {fileID: 5787261840049859414}
   - component: {fileID: 5964268775823845525}
-  - component: {fileID: -2534771080088958285}
   - component: {fileID: 5787261840049859412}
   - component: {fileID: 5799902458436473082}
   - component: {fileID: 4142080222235212385}
@@ -501,6 +500,23 @@ MonoBehaviour:
   OnChangeCurrentLife:
     m_PersistentCalls:
       m_Calls: []
+  OnRespawnLife:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4618852024556443092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5787261840049859411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df10a03a3e91b84890bac0186170a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeController: {fileID: 0}
+  lifeBar: {fileID: 1724311354912455881}
 --- !u!114 &5787261840049859414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,20 +536,6 @@ MonoBehaviour:
   canvas: {fileID: 4075000003090972985}
   shootingSound: {fileID: 7578392688383166014}
   damageSound: {fileID: 7578392686903350338}
---- !u!114 &4618852024556443092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5787261840049859411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5df10a03a3e91b84890bac0186170a17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeController: {fileID: 0}
-  lifeBar: {fileID: 1724311354912455881}
 --- !u!114 &5964268775823845525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,39 +571,6 @@ MonoBehaviour:
   attackTimeDuration: 1
   cooldown: 5
   moveCooldown: 2
---- !u!114 &-2534771080088958285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5787261840049859411}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4de2fc9bb1274fc45af5183fa514ec11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
-  leftX: {fileID: 612927236881340076}
-  rightX: {fileID: 3697655210000926120}
-  groundDetectionList:
-    serializedVersion: 2
-    m_Bits: 1024
-  groundDetectionDistance: 0.5
-  player: {fileID: 0}
-  gameManager: {fileID: 0}
-  groundDetectionPoint: {fileID: 9183791398283362736}
-  attackPoint: {fileID: 5511854871294019161}
-  detectionPoint: {fileID: 6246200215725301355}
-  attackSound: {fileID: 7578392688383166014}
-  playerDetectionList:
-    serializedVersion: 2
-    m_Bits: 256
-  attackRadius: 1
-  damage: 1
-  attackTimeDuration: 1
-  cooldown: 3
-  moveCooldown: 0.5
 --- !u!61 &5787261840049859412
 BoxCollider2D:
   m_ObjectHideFlags: 0

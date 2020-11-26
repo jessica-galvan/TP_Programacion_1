@@ -112,7 +112,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(1) && Time.time > slashCooldownTimer && canAttack)
             {
                 Attack();
-
             } 
 
             //RecargarMana cuando queda en cero hasta que tenga la mitad

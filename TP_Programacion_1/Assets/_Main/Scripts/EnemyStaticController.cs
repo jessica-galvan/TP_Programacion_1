@@ -32,6 +32,7 @@ public class EnemyStaticController : MonoBehaviour
         {
             if (enemyController.canAttack) //Si el enemigo puede atacar es porque el player esta dentro de al trigger zone
             {
+                //con esto chequea el sentido del player antes de atacar
                 if (player.transform.position.x > transform.position.x && !enemyController.facingRight) //estoy a la derecha
                 {
                     enemyController.BackFlip();

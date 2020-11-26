@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     public bool isFreeze;
 
     //Extras
-    private bool gameEnd = false;
+    private bool gameOver = false;
+    private bool victory = false;
     private float restartCooldown = 0f;
     private int enemyCounterLevel;
     private int enemyCounter;
@@ -36,16 +37,17 @@ public class GameManager : MonoBehaviour
         gameOverAnimator = gameOverScreen.GetComponent<Animator>();
         enemyCounter = enemyCounterLevel;
         isFreeze = false;
+        victory = false;
     }
 
     void Update()
     {
-        if(enemyCounter == 0 && !gameEnd)
+        if(enemyCounter == 0 && !gameOver)
         {
             Victory();
         }
 
-        if(isFreeze && gameEnd && restartCooldown < Time.time)
+        if(isFreeze && gameOver && restartCooldown < Time.time)
         {
             RestartLastCheckpoint();
         }
@@ -63,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
-        gameEnd = true;
+        victory = true;
         isFreeze = true;
         victoryScreen.SetActive(true);
     }
@@ -71,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        gameEnd = true;
+        gameOver = true;
         isFreeze = true;
         gameOverScreen.SetActive(true);
         gameOverAnimator.SetBool("isDead", true);
@@ -90,7 +92,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartLastCheckpoint()
     {
-        gameEnd = false;
+        Debug.Log("activado");
+        gameOver = false;
         isFreeze = false;
         OnPlayerRespawn.Invoke();
         //playerCurrentCheckpoint.y += 1; //para que tenga un offset de cuando vuelve, pero 1 en int es muuy grande la caida
