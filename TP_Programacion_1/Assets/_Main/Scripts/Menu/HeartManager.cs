@@ -59,8 +59,10 @@ public class HeartManager : MonoBehaviour
     private void OnRespawnLifeListener()
     {
         playerCurrentHearts = lifeController.GetCurrentLife();
+        currentHearts = playerCurrentHearts;
         for (int i = 0; i < playerCurrentHearts; i++)
         {
+
             hearts[i].SetActive(true);
         }
     }
