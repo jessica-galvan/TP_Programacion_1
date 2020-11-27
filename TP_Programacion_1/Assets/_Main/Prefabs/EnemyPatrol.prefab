@@ -45,7 +45,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.040893465, y: 0.2781241}
+  m_Offset: {x: -0.00954628, y: 0.46692264}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -56,7 +56,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.55644625, y: 0.093752384}
+  m_Size: {x: 0.7203312, y: 0.08796477}
   m_EdgeRadius: 0
 --- !u!114 &898057853
 MonoBehaviour:
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 4040596155378877217}
   - component: {fileID: 2383700583947088679}
   m_Layer: 9
-  m_Name: LifeBarBackground
+  m_Name: w
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 58.4}
+  m_AnchoredPosition: {x: 0, y: 75}
   m_SizeDelta: {x: 79.061646, y: 14.571491}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4040596155378877217
@@ -467,7 +467,7 @@ SpriteRenderer:
   m_SortingLayerID: 718143559
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7152759390613953277, guid: 3750f45c844123341b9a777a96cb1eca,
+  m_Sprite: {fileID: -3757509624264599027, guid: c2a7b0194d85aa94b87260244bdbfb3b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -491,9 +491,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d646ed565d16f46bf0aec53454b081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   maxLife: 15
   currentLife: 0
-  death: {fileID: 1753471898871332028, guid: e1c825100e5258b49a22724f249c5bad, type: 3}
+  death: {fileID: 1753471898871332028, guid: c624c1bbd6b889c479226dd01df6a99f, type: 3}
   OnDie:
     m_PersistentCalls:
       m_Calls: []
@@ -584,18 +585,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010170817, y: -0.07252264}
+  m_Offset: {x: -0.039143085, y: -0.06493533}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8, y: 0.8}
+    oldSize: {x: 0.99, y: 1.07}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5240867, y: 0.65289545}
+  m_Size: {x: 0.9261675, y: 0.88352275}
   m_EdgeRadius: 0
 --- !u!95 &5799902458436473082
 Animator:

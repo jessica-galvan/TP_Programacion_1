@@ -529,13 +529,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d646ed565d16f46bf0aec53454b081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   maxLife: 15
   currentLife: 0
-  death: {fileID: 1753471898871332028, guid: e1c825100e5258b49a22724f249c5bad, type: 3}
+  death: {fileID: 1753471898871332028, guid: e4275eb84fc38d14cbbb1a64c1257506, type: 3}
   OnDie:
     m_PersistentCalls:
       m_Calls: []
   OnChangeCurrentLife:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRespawnLife:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &4618852024556443092
