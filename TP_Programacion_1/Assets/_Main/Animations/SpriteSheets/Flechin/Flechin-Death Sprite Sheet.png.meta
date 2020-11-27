@@ -1,0 +1,503 @@
+fileFormatVersion: 2
+guid: b279df713d95ddf439e3d6ec8187abaa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3612319568576629501
+    second: Flechin-Death Sprite Sheet_0
+  - first:
+      213: -1170492510634795913
+    second: Flechin-Death Sprite Sheet_1
+  - first:
+      213: -9075913818686891604
+    second: Flechin-Death Sprite Sheet_2
+  - first:
+      213: -9180486707937454360
+    second: Flechin-Death Sprite Sheet_3
+  - first:
+      213: -7549463812812077330
+    second: Flechin-Death Sprite Sheet_4
+  - first:
+      213: -6353852175612995583
+    second: Flechin-Death Sprite Sheet_5
+  - first:
+      213: -9056998983339447040
+    second: Flechin-Death Sprite Sheet_6
+  - first:
+      213: 7591454805824015343
+    second: Flechin-Death Sprite Sheet_7
+  - first:
+      213: 2384327838618577277
+    second: Flechin-Death Sprite Sheet_8
+  - first:
+      213: 9100586531982433908
+    second: Flechin-Death Sprite Sheet_9
+  - first:
+      213: 2218112266272049494
+    second: Flechin-Death Sprite Sheet_10
+  - first:
+      213: 1103453824664599105
+    second: Flechin-Death Sprite Sheet_11
+  - first:
+      213: 9072571631173777133
+    second: Flechin-Death Sprite Sheet_12
+  - first:
+      213: 591118681938473441
+    second: Flechin-Death Sprite Sheet_13
+  - first:
+      213: 3673395280630459026
+    second: Flechin-Death Sprite Sheet_14
+  - first:
+      213: -2966250436993221354
+    second: Flechin-Death Sprite Sheet_0
+  - first:
+      213: -3362130953036925180
+    second: Flechin-Death Sprite Sheet_1
+  - first:
+      213: 4712636182766863120
+    second: Flechin-Death Sprite Sheet_2
+  - first:
+      213: 7362625419520604674
+    second: Flechin-Death Sprite Sheet_3
+  - first:
+      213: -6431578966943800262
+    second: Flechin-Death Sprite Sheet_4
+  - first:
+      213: 39190217514196752
+    second: Flechin-Death Sprite Sheet_5
+  - first:
+      213: 4405523431339271526
+    second: Flechin-Death Sprite Sheet_6
+  - first:
+      213: -3788593499976275344
+    second: Flechin-Death Sprite Sheet_7
+  - first:
+      213: -5477816213236964322
+    second: Flechin-Death Sprite Sheet_8
+  - first:
+      213: -7596191731599450954
+    second: Flechin-Death Sprite Sheet_9
+  - first:
+      213: -4724302047923218717
+    second: Flechin-Death Sprite Sheet_10
+  - first:
+      213: -716719092985409742
+    second: Flechin-Death Sprite Sheet_11
+  - first:
+      213: 3008264867386180427
+    second: Flechin-Death Sprite Sheet_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 623
+        width: 31
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61dfb2481f2c5d6d0800000000000000
+      internalID: -2966250436993221354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 562
+        width: 75
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40773e726bf4751d0800000000000000
+      internalID: -3362130953036925180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 547
+        width: 125
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013c87db3a5a66140800000000000000
+      internalID: 4712636182766863120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 497
+        width: 137
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20a79c86fcc4d2660800000000000000
+      internalID: 7362625419520604674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 493
+        width: 137
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a34e07a61017eb6a0800000000000000
+      internalID: -6431578966943800262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 494
+        width: 135
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f9a919b4b3b8000800000000000000
+      internalID: 39190217514196752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 494
+        width: 110
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66523a62830932d30800000000000000
+      internalID: 4405523431339271526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 493
+        width: 144
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a6f8bd8463c6bc0800000000000000
+      internalID: -3788593499976275344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 508
+        width: 145
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14a2214d23eaf3b0800000000000000
+      internalID: -5477816213236964322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 512
+        width: 141
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc5140ddd7e49690800000000000000
+      internalID: -7596191731599450954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 516
+        width: 122
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6d2ed5158ef6eb0800000000000000
+      internalID: -4724302047923218717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 508
+        width: 116
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f4dd248c3bd06f0800000000000000
+      internalID: -716719092985409742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 537
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4347da55f08fb920800000000000000
+      internalID: 3008264867386180427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 522
+        width: 39
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e13a013f43143800800000000000000
+      internalID: 591118681938473441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flechin-Death Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 493
+        width: 162
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29a23959b858af230800000000000000
+      internalID: 3673395280630459026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

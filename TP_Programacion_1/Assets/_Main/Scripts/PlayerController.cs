@@ -77,11 +77,13 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded) //JUMP
             {
+                animatorController.SetTrigger("IsJumping");
                 canJump = true;
             }
 
             if (!canAttack && Time.time > cooldownTimer) //Cooldown Attack Timer
             {
+
                 canAttack = true;
             }
 
@@ -102,6 +104,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && Time.time > cooldownTimer && currentMana > 0) //Si recibe input de disparo y el cooldown ya no esta y además hay ammo...
             {
                 Shoot();
+                animatorController.SetTrigger("IsShooting");
             }
             else if (Input.GetMouseButtonDown(0) && Time.time > cooldownTimer || Input.GetMouseButtonDown(0) && currentMana > 0)
             {
@@ -134,6 +137,8 @@ public class PlayerController : MonoBehaviour
 
             //Animaciones
             animatorController.SetBool("IsRunning", movement != 0);
+
+          
         }
     }
 
@@ -141,13 +146,14 @@ public class PlayerController : MonoBehaviour
     {
         if (canJump && isGrounded)
         {
+            
             isGrounded = false;
             canJump = false;
             myRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
 
-
+        
     private void Shoot() //Instancia una bala
     {
         Instantiate(bullet, transform.position + offset, transform.rotation);
@@ -160,7 +166,7 @@ public class PlayerController : MonoBehaviour
     private void Attack()
     {
         canAttack = false;
-        //animatorController.SetTrigger("IsPhisicalAttacking");
+        animatorController.SetTrigger("IsPhisicalAttacking");
         //attackSound.Play();
         Collider2D collider = Physics2D.OverlapCircle((Vector2)attackPoint.position, attackRadius, enemyDetectionList);
         if (collider != null)
