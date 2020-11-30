@@ -31,7 +31,7 @@ public class EnemyFly : MonoBehaviour
     //Extras
     private Rigidbody2D rb2d;
     private GameObject player;
-    //private Animator animatorController = null;
+    private Animator animatorController = null;
     private bool canMove;
     private bool facingRight;
     private float moveTimer = 0f;
@@ -41,7 +41,7 @@ public class EnemyFly : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        //animatorController = GetComponent<Animator>();
+        animatorController = GetComponent<Animator>();
         //animatorController.SetBool("Fly", true); //La idea es que siempre que no este atacando o muriendo, el personaje vuele. No necesita una animación de idle, es la misma que cuando se mueve.
         gameManager.OnPlayerRespawn.AddListener(OnPlayerRespawnListener);
         canMove = true;
@@ -94,7 +94,7 @@ public class EnemyFly : MonoBehaviour
         canShoot = false;
         //canMove = false;
         //moveTimer = moveCooldown + Time.time;
-        //animatorController.SetTrigger("IsAttacking");
+        animatorController.SetTrigger("IsAttacking");
         attackSound.Play();
         Instantiate(bullet, transform.position + offset, Quaternion.identity);
         cooldownTimer = cooldown + Time.time; 

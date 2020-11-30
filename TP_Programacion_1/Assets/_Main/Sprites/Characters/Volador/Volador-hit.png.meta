@@ -1,0 +1,296 @@
+fileFormatVersion: 2
+guid: f463199b8333cf84cb73c0e9a8da3a20
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1467502790151974169
+    second: Volador-hit_0
+  - first:
+      213: -7301717668584693264
+    second: Volador-hit_1
+  - first:
+      213: -7512382094912590258
+    second: Volador-hit_2
+  - first:
+      213: 6736860998219295771
+    second: Volador-hit_3
+  - first:
+      213: -663516588532847913
+    second: Volador-hit_4
+  - first:
+      213: 7362083719810598328
+    second: Volador-hit_5
+  - first:
+      213: -1908379244245668386
+    second: Volador-hit_6
+  - first:
+      213: -1680444211750870206
+    second: Volador-hit_7
+  - first:
+      213: 3279972196608411570
+    second: Volador-hit_8
+  - first:
+      213: -5481792775939743144
+    second: Volador-hit_9
+  - first:
+      213: -2348974361403503903
+    second: Volador-hit_10
+  - first:
+      213: 2320941657798200502
+    second: Volador-hit_0
+  - first:
+      213: 6669949196651967728
+    second: Volador-hit_1
+  - first:
+      213: 2444082471716771563
+    second: Volador-hit_2
+  - first:
+      213: -5693809241178704582
+    second: Volador-hit_3
+  - first:
+      213: -8035630962694159981
+    second: Volador-hit_4
+  - first:
+      213: 1433364431228364696
+    second: Volador-hit_5
+  - first:
+      213: -3937828086370092180
+    second: Volador-hit_6
+  - first:
+      213: -7280385122746082347
+    second: Volador-hit_7
+  - first:
+      213: 5404765400151247562
+    second: Volador-hit_8
+  - first:
+      213: -5494670754014135096
+    second: Volador-hit_9
+  - first:
+      213: 2075485761199899851
+    second: Volador-hit_10
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 250
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Volador-hit_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 654
+        width: 472
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bcc7711424a53020800000000000000
+      internalID: 2320941657798200502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Volador-hit_3
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 673
+        width: 488
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a35f4b889a68bf0b0800000000000000
+      internalID: -5693809241178704582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Volador-hit_4
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 673
+        width: 513
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3910c7ac634bb7090800000000000000
+      internalID: -8035630962694159981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Volador-hit_6
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 266
+        width: 513
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6bba5d08360a59c0800000000000000
+      internalID: -3937828086370092180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Volador-hit_7
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 286
+        width: 488
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db5ea2dd40e6fa90800000000000000
+      internalID: -7280385122746082347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Volador-hit_8
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 275
+        width: 443
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca465aee75910b40800000000000000
+      internalID: 5404765400151247562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,91 +1,46 @@
 fileFormatVersion: 2
-guid: b279df713d95ddf439e3d6ec8187abaa
+guid: 671e683d221cd7147b9514be29e2bfa8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3612319568576629501
-    second: Flechin-Death Sprite Sheet_0
+      213: 3339433788620837313
+    second: Volador-Death_0
   - first:
-      213: -1170492510634795913
-    second: Flechin-Death Sprite Sheet_1
+      213: 7497271892144918780
+    second: Volador-Death_1
   - first:
-      213: -9075913818686891604
-    second: Flechin-Death Sprite Sheet_2
+      213: -3024368222432210317
+    second: Volador-Death_2
   - first:
-      213: -9180486707937454360
-    second: Flechin-Death Sprite Sheet_3
+      213: -6616630764697759294
+    second: Volador-Death_3
   - first:
-      213: -7549463812812077330
-    second: Flechin-Death Sprite Sheet_4
+      213: -4857629932473880902
+    second: Volador-Death_4
   - first:
-      213: -6353852175612995583
-    second: Flechin-Death Sprite Sheet_5
+      213: 8157663933462870812
+    second: Volador-Death_5
   - first:
-      213: -9056998983339447040
-    second: Flechin-Death Sprite Sheet_6
+      213: -3569976273194423131
+    second: Volador-Death_6
   - first:
-      213: 7591454805824015343
-    second: Flechin-Death Sprite Sheet_7
+      213: 2035495655942678117
+    second: Volador-Death_7
   - first:
-      213: 2384327838618577277
-    second: Flechin-Death Sprite Sheet_8
+      213: -1674868589807418063
+    second: Volador-Death_8
   - first:
-      213: 9100586531982433908
-    second: Flechin-Death Sprite Sheet_9
+      213: -4366016711156413644
+    second: Volador-Death_9
   - first:
-      213: 2218112266272049494
-    second: Flechin-Death Sprite Sheet_10
+      213: 6145340782162440771
+    second: Volador-Death_10
   - first:
-      213: 1103453824664599105
-    second: Flechin-Death Sprite Sheet_11
+      213: -7245947436171377190
+    second: Volador-Death_11
   - first:
-      213: 9072571631173777133
-    second: Flechin-Death Sprite Sheet_12
-  - first:
-      213: 591118681938473441
-    second: Flechin-Death Sprite Sheet_13
-  - first:
-      213: 3673395280630459026
-    second: Flechin-Death Sprite Sheet_14
-  - first:
-      213: -2966250436993221354
-    second: Flechin-Death Sprite Sheet_0
-  - first:
-      213: -3362130953036925180
-    second: Flechin-Death Sprite Sheet_1
-  - first:
-      213: 4712636182766863120
-    second: Flechin-Death Sprite Sheet_2
-  - first:
-      213: 7362625419520604674
-    second: Flechin-Death Sprite Sheet_3
-  - first:
-      213: -6431578966943800262
-    second: Flechin-Death Sprite Sheet_4
-  - first:
-      213: 39190217514196752
-    second: Flechin-Death Sprite Sheet_5
-  - first:
-      213: 4405523431339271526
-    second: Flechin-Death Sprite Sheet_6
-  - first:
-      213: -3788593499976275344
-    second: Flechin-Death Sprite Sheet_7
-  - first:
-      213: -5477816213236964322
-    second: Flechin-Death Sprite Sheet_8
-  - first:
-      213: -7596191731599450954
-    second: Flechin-Death Sprite Sheet_9
-  - first:
-      213: -4724302047923218717
-    second: Flechin-Death Sprite Sheet_10
-  - first:
-      213: -716719092985409742
-    second: Flechin-Death Sprite Sheet_11
-  - first:
-      213: 3008264867386180427
-    second: Flechin-Death Sprite Sheet_12
+      213: 3392059220832061712
+    second: Volador-Death_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -129,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 125
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -171,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_0
+      name: Volador-Death_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 623
-        width: 31
-        height: 68
+        x: 87
+        y: 676
+        width: 255
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61dfb2481f2c5d6d0800000000000000
-      internalID: -2966250436993221354
+      spriteID: 1c19ea1765d085e20800000000000000
+      internalID: 3339433788620837313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_1
+      name: Volador-Death_1
       rect:
         serializedVersion: 2
-        x: 113
-        y: 562
-        width: 75
-        height: 110
+        x: 404
+        y: 676
+        width: 266
+        height: 227
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40773e726bf4751d0800000000000000
-      internalID: -3362130953036925180
+      spriteID: cf091db4019ab0860800000000000000
+      internalID: 7497271892144918780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_2
+      name: Volador-Death_2
       rect:
         serializedVersion: 2
-        x: 241
-        y: 547
-        width: 125
-        height: 114
+        x: 715
+        y: 682
+        width: 268
+        height: 207
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 013c87db3a5a66140800000000000000
-      internalID: 4712636182766863120
+      spriteID: 372d2ff10294706d0800000000000000
+      internalID: -3024368222432210317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_3
+      name: Volador-Death_3
       rect:
         serializedVersion: 2
-        x: 405
-        y: 497
-        width: 137
-        height: 157
+        x: 1059
+        y: 691
+        width: 306
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20a79c86fcc4d2660800000000000000
-      internalID: 7362625419520604674
+      spriteID: 2c1d44c30610d24a0800000000000000
+      internalID: -6616630764697759294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_4
+      name: Volador-Death_4
       rect:
         serializedVersion: 2
-        x: 573
-        y: 493
-        width: 137
-        height: 163
+        x: 1438
+        y: 691
+        width: 324
+        height: 214
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a34e07a61017eb6a0800000000000000
-      internalID: -6431578966943800262
+      spriteID: abee690305b369cb0800000000000000
+      internalID: -4857629932473880902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_5
+      name: Volador-Death_5
       rect:
         serializedVersion: 2
-        x: 725
-        y: 494
-        width: 135
-        height: 160
+        x: 0
+        y: 371
+        width: 293
+        height: 226
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01f9a919b4b3b8000800000000000000
-      internalID: 39190217514196752
+      spriteID: c1bf1175028d53170800000000000000
+      internalID: 8157663933462870812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_6
+      name: Volador-Death_6
       rect:
         serializedVersion: 2
-        x: 883
-        y: 494
-        width: 110
-        height: 162
+        x: 329
+        y: 354
+        width: 341
+        height: 290
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66523a62830932d30800000000000000
-      internalID: 4405523431339271526
+      spriteID: 5ac6cab7e75e47ec0800000000000000
+      internalID: -3569976273194423131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_7
+      name: Volador-Death_7
       rect:
         serializedVersion: 2
-        x: 1009
-        y: 493
-        width: 144
-        height: 154
+        x: 715
+        y: 365
+        width: 326
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07a6f8bd8463c6bc0800000000000000
-      internalID: -3788593499976275344
+      spriteID: 566605ab3888f3c10800000000000000
+      internalID: 2035495655942678117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_8
+      name: Volador-Death_8
       rect:
         serializedVersion: 2
-        x: 1332
-        y: 508
-        width: 145
-        height: 117
+        x: 1058
+        y: 376
+        width: 325
+        height: 253
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,20 +308,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e14a2214d23eaf3b0800000000000000
-      internalID: -5477816213236964322
+      spriteID: 135c11334eba1c8e0800000000000000
+      internalID: -1674868589807418063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_9
+      name: Volador-Death_9
       rect:
         serializedVersion: 2
-        x: 1494
-        y: 512
-        width: 141
-        height: 121
+        x: 1438
+        y: 395
+        width: 329
+        height: 234
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,20 +329,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bc5140ddd7e49690800000000000000
-      internalID: -7596191731599450954
+      spriteID: 43b4a10feeac863c0800000000000000
+      internalID: -4366016711156413644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_10
+      name: Volador-Death_10
       rect:
         serializedVersion: 2
-        x: 1642
-        y: 516
-        width: 122
-        height: 117
+        x: 600
+        y: 15
+        width: 214
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,20 +350,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e6d2ed5158ef6eb0800000000000000
-      internalID: -4724302047923218717
+      spriteID: 3427388c1e2a84550800000000000000
+      internalID: 6145340782162440771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_11
+      name: Volador-Death_11
       rect:
         serializedVersion: 2
-        x: 1774
-        y: 508
-        width: 116
-        height: 129
+        x: 974
+        y: 0
+        width: 349
+        height: 319
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,20 +371,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23f4dd248c3bd06f0800000000000000
-      internalID: -716719092985409742
+      spriteID: ad54add8239317b90800000000000000
+      internalID: -7245947436171377190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_12
+      name: Volador-Death_12
       rect:
         serializedVersion: 2
-        x: 124
-        y: 537
-        width: 16
-        height: 16
+        x: 1403
+        y: 54
+        width: 380
+        height: 312
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,50 +392,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4347da55f08fb920800000000000000
-      internalID: 3008264867386180427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 522
-        width: 39
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e13a013f43143800800000000000000
-      internalID: 591118681938473441
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flechin-Death Sprite Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 1160
-        y: 493
-        width: 162
-        height: 123
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29a23959b858af230800000000000000
-      internalID: 3673395280630459026
+      spriteID: 01988c2b3e3031f20800000000000000
+      internalID: 3392059220832061712
       vertices: []
       indices: 
       edges: []

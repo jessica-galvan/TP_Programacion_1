@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2611181786558738192}
   - component: {fileID: 3370890376886560202}
   - component: {fileID: -6943383841537091797}
+  - component: {fileID: -4791061697101290244}
   m_Layer: 9
   m_Name: BulletFlyEnemy
   m_TagString: EnemyBullet
@@ -50,7 +51,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   damage: 1
-  enemyDamage: 1
 --- !u!114 &3762357391963882060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +151,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &-4791061697101290244
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3762357391963882051}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3762357392937266564
 GameObject:
   m_ObjectHideFlags: 0
