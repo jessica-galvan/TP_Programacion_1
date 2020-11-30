@@ -6,6 +6,11 @@ public class BouncingMushroom : MonoBehaviour
 {
     [SerializeField] bool canBounce = true;
     [SerializeField] float jumpForce = 1f;
+    private Animator animatorController;
+
+    private void Awake() {
+        animatorController = GetComponentInParent<Animator>();
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -15,6 +20,7 @@ public class BouncingMushroom : MonoBehaviour
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            animatorController.SetTrigger("IsJumping");
         }
     }
 }
