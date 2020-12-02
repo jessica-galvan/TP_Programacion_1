@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollectableItem : MonoBehaviour
 {
+    [SerializeField] private GameObject plumaLuz;
     [SerializeField] private float destroyTime = 1f;
     private GameManager gameManager;
     private AudioSource sound;
@@ -35,6 +36,7 @@ public class CollectableItem : MonoBehaviour
             {
                 canPickup = false;
                 gameManager.PickUpCollectable();
+                plumaLuz.SetActive(false);
                 sound.Play();
                 GetComponent<Collider2D>().enabled = false;
                 GetComponent<SpriteRenderer>().enabled = false;
