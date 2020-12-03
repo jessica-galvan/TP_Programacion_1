@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1370262007225836374}
   - component: {fileID: 1370262007225836369}
   - component: {fileID: 141956984236759928}
+  - component: {fileID: 331570485}
   m_Layer: 0
   m_Name: Bouncy
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370262007225836375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.011, y: -0.003, z: 0}
+  m_LocalPosition: {x: 0.011, y: -0.196, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1370262008239143620}
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBounce: 1
-  jumpForce: 4
+  jumpForce: 8
 --- !u!68 &141956984236759928
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -57,21 +58,41 @@ EdgeCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.13391718, y: 1.1166537}
-  - {x: 0.036531128, y: 1.3355972}
-  - {x: 0.3156449, y: 1.4749784}
-  - {x: 0.67396706, y: 1.5124755}
-  - {x: 0.95009774, y: 1.3630289}
-  - {x: 1.0999275, y: 1.1884677}
-  - {x: 1.1696678, y: 1.0125113}
-  - {x: 1.198507, y: 0.8578725}
-  - {x: 1.2012306, y: 0.8174422}
-  - {x: 1.210653, y: 0.72945714}
+  - {x: -0.23200068, y: 1.6447742}
+  - {x: -0.15348658, y: 1.7373879}
+  - {x: -0.023672424, y: 1.908684}
+  - {x: 0.15902105, y: 2.047766}
+  - {x: 0.46531835, y: 2.1555264}
+  - {x: 0.90270394, y: 2.2023613}
+  - {x: 1.1795136, y: 2.1117592}
+  - {x: 1.2999893, y: 1.9767617}
+  - {x: 1.4715592, y: 1.7151564}
+  - {x: 1.5874878, y: 1.416107}
+  - {x: 1.6056687, y: 1.1855391}
+--- !u!251 &331570485
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370262007225836375}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: -14.2
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 208.46
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1370262008239143626
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +105,7 @@ GameObject:
   - component: {fileID: 1370262008239143621}
   - component: {fileID: 7045186322685644207}
   m_Layer: 0
-  m_Name: BigMushroom (1)
+  m_Name: BigDoubleMushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,6 +207,7 @@ GameObject:
   - component: {fileID: 4122447095585523983}
   - component: {fileID: 9102770694040033802}
   - component: {fileID: 3263923413281866394}
+  - component: {fileID: 331570484}
   m_Layer: 0
   m_Name: Bouncy (1)
   m_TagString: Untagged
@@ -220,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBounce: 1
-  jumpForce: 4
+  jumpForce: 7
 --- !u!68 &3263923413281866394
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -232,18 +254,38 @@ EdgeCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -1.2506126, y: 0.031768776}
-  - {x: -1.1765732, y: 0.32848236}
-  - {x: -1.0463623, y: 0.49952003}
-  - {x: -0.88116676, y: 0.61500907}
-  - {x: -0.6910041, y: 0.6916435}
-  - {x: -0.541056, y: 0.71847606}
-  - {x: -0.4792808, y: 0.7102015}
-  - {x: -0.36363825, y: 0.6914606}
-  - {x: -0.3184341, y: 0.6647167}
-  - {x: -0.30159983, y: 0.6489725}
+  - {x: -1.6539139, y: 0.042970397}
+  - {x: -1.6191696, y: 0.243098}
+  - {x: -1.5914444, y: 0.37189648}
+  - {x: -1.5278381, y: 0.47573158}
+  - {x: -1.5138992, y: 0.553272}
+  - {x: -1.3918899, y: 0.6835058}
+  - {x: -1.2442383, y: 0.7657249}
+  - {x: -1.0639862, y: 0.86893535}
+  - {x: -0.8766387, y: 0.96377444}
+  - {x: -0.67022544, y: 1.0066774}
+  - {x: -0.45346674, y: 0.9018495}
+--- !u!251 &331570484
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476488695683466475}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 33.3
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 196.14
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

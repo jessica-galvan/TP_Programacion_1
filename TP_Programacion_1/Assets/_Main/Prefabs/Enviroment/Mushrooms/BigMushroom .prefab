@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 5062843145454311044}
   - component: {fileID: 5062843145454311043}
   - component: {fileID: 4774721489144159906}
+  - component: {fileID: 5461787031866143869}
   m_Layer: 0
   m_Name: Bouncy
   m_TagString: Untagged
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBounce: 1
-  jumpForce: 4
+  jumpForce: 9
 --- !u!68 &4774721489144159906
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -159,18 +160,37 @@ EdgeCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.7675689, y: 0.4871187}
-  - {x: -0.6012328, y: 0.648458}
-  - {x: -0.38795313, y: 0.7425785}
-  - {x: -0.13661036, y: 0.7965338}
-  - {x: 0.2012383, y: 0.7993276}
-  - {x: 0.38810125, y: 0.7523196}
-  - {x: 0.57305306, y: 0.6175091}
-  - {x: 0.6996018, y: 0.47336075}
-  - {x: 0.7502572, y: 0.3757343}
-  - {x: 0.7607133, y: 0.25728104}
+  - {x: -1.1408066, y: 0.7061925}
+  - {x: -1.0718368, y: 0.8188486}
+  - {x: -0.8828948, y: 0.94542456}
+  - {x: -0.5585311, y: 1.0805185}
+  - {x: -0.21256861, y: 1.1644504}
+  - {x: 0.2095963, y: 1.1823533}
+  - {x: 0.57305306, y: 1.1043398}
+  - {x: 0.8537614, y: 0.9196222}
+  - {x: 1.0585724, y: 0.71651554}
+  - {x: 1.1258332, y: 0.5980625}
+--- !u!251 &5461787031866143869
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5062843145454311045}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: -12.8
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 182.7
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
