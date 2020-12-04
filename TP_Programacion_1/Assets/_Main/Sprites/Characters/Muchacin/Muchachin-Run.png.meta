@@ -120,7 +120,7 @@ TextureImporter:
       name: Muchachin-Run_0
       rect:
         serializedVersion: 2
-        x: 58
+        x: 57
         y: 728
         width: 168
         height: 241
@@ -144,7 +144,7 @@ TextureImporter:
         x: 268
         y: 730
         width: 172
-        height: 247
+        height: 248
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 2, z: 0, w: 0}
@@ -226,9 +226,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1140
-        y: 736
+        y: 731
         width: 154
-        height: 242
+        height: 247
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 1, z: 0, w: 0}
@@ -246,10 +246,10 @@ TextureImporter:
       name: Muchachin-Run_6
       rect:
         serializedVersion: 2
-        x: 1369
-        y: 736
+        x: 1368
+        y: 730
         width: 152
-        height: 245
+        height: 251
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,9 +268,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 59
-        y: 418
+        y: 410
         width: 149
-        height: 243
+        height: 251
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 2, z: 0, w: 0}
@@ -289,9 +289,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 322
-        y: 416
+        y: 409
         width: 153
-        height: 242
+        height: 249
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
