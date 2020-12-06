@@ -163,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBounce: 1
-  jumpForce: 2
+  jumpForce: 5

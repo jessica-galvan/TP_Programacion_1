@@ -99,8 +99,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -1.8139038, y: 1.0683136}
-  - {x: 1.7786846, y: 1.2326698}
+  - {x: -0.9487114, y: 0.56722}
+  - {x: 0.9088936, y: 0.6830437}
 --- !u!251 &6244532650024936854
 PlatformEffector2D:
   m_ObjectHideFlags: 0
