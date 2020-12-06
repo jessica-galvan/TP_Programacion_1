@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 5062843145454311043}
   - component: {fileID: 4774721489144159906}
   - component: {fileID: 5461787031866143869}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bouncy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

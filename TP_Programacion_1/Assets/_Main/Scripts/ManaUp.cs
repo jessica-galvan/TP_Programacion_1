@@ -38,6 +38,7 @@ public class ManaUp : MonoBehaviour
             {
                 if (player.CanRechargeMana()) //Si el mana del player es menor al mana maximo
                 {
+                    Debug.Log("Stage1");
                     canRecharge = false; //Solo deberia curar una vez. 
                     sprite.enabled = false; //Desactivame el animator y el sprite renderer. Además toca el sonido.
                     animatorController.enabled = false;

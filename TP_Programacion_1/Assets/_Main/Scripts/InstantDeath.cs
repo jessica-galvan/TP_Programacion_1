@@ -19,12 +19,19 @@ public class InstantDeath : MonoBehaviour
         if(life != null)
         {
             life.TakeDamage(damage);
-            if (life.GetCurrentLife() > 0)
+
+            if (player) 
             {
-                player.PlayerActive(false);
-                player.SetCurrentPosition(gameManager.GetCurrentCheckpoint());
-                player.PlayerActive(true);
-                life.Respawn(life.GetCurrentLife());
+                if (life.GetCurrentLife() > 0)
+                {
+                    player.PlayerActive(false);
+                    player.SetCurrentPosition(gameManager.GetCurrentCheckpoint());
+                    player.PlayerActive(true);
+                    life.Respawn(life.GetCurrentLife());
+                }
+            } else 
+            {
+                Destroy(gameObject);
             }
         }
     }

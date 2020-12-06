@@ -53,7 +53,7 @@ public class EnemyController : MonoBehaviour
         gameManager.takeOneEnemy();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         LifeController life = collision.gameObject.GetComponent<LifeController>();
@@ -61,7 +61,7 @@ public class EnemyController : MonoBehaviour
         {
             life.TakeDamage(bodyDamage);
         }
-    }
+    }*/
 
     //SET & GET
     public void SetGameManager(GameManager _gameManager)

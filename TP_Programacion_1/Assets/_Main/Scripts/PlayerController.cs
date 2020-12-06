@@ -83,7 +83,6 @@ public class PlayerController : MonoBehaviour
 
             if (!canAttack && Time.time > cooldownTimer) //Cooldown Attack Timer
             {
-
                 canAttack = true;
             }
 
@@ -226,6 +225,11 @@ public class PlayerController : MonoBehaviour
         if(currentMana <= (maxMana - mana))
         {
             currentMana += mana;
+            OnChangeMana.Invoke();
+            rechargeAmmoSound.Play();
+        } else if(currentMana < maxMana)
+        {
+            currentMana = maxMana;
             OnChangeMana.Invoke();
             rechargeAmmoSound.Play();
         }

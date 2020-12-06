@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 5593569185661985362}
   - component: {fileID: 5593569185661985365}
   - component: {fileID: 4567204325660040655}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bouncy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
