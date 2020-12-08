@@ -41,9 +41,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 055c05c9df84a4133aa59db9a5424e73, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7d1ad680d70934c4989e1f07113faa79, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -240,9 +240,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4d60a84f34e8d48309cd3fb190e66a8e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 167530b1fcc05de47b950b69fc83807a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -367,9 +367,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b3016411f94144a349c07c7d6c4f3fbe, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 586ae48fbbc37264f96891db1432f61c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -710,7 +710,7 @@ MonoBehaviour:
     m_Bits: 512
   attackRadius: 1
   damage: 5
-  slashCooldown: 1
+  slashCooldown: 0.5
   shootingSound: {fileID: 833227428}
   attackSound: {fileID: 6957815278957276229}
   rechargeAmmoSound: {fileID: 8565926417903950869}
@@ -851,9 +851,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3fd56afec6907904da3eef3137ba0b7c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1008,7 +1008,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 778e2a33779af46808f9d5d5026ccb6a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1b12b68a7bd45e7408a28dd33fe63fef, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

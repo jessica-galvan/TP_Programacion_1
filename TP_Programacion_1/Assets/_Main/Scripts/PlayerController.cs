@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
     {
         canAttack = false;
         animatorController.SetTrigger("IsPhisicalAttacking");
-        //attackSound.Play();
+        attackSound.Play();
         Collider2D collider = Physics2D.OverlapCircle((Vector2)attackPoint.position, attackRadius, enemyDetectionList);
         if (collider != null)
         {

@@ -174,6 +174,7 @@ public class EnemyPatrol2 : MonoBehaviour
         canAttack = false;
 
         moveTimer = moveCooldown + Time.time;
+        attackSound.Play();
         animatorController.SetTrigger("IsAttacking");
 
         Collider2D collider = Physics2D.OverlapCircle((Vector2)attackPoint.position, attackRadius, playerDetectionList);

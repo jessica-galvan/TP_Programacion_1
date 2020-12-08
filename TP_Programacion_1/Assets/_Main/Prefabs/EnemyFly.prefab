@@ -45,7 +45,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.040893465, y: 0.2781241}
+  m_Offset: {x: -0.11920643, y: 0.2781241}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -56,7 +56,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.55644625, y: 0.093752384}
+  m_Size: {x: 0.75349236, y: 0.093752384}
   m_EdgeRadius: 0
 --- !u!114 &898057853
 MonoBehaviour:
@@ -505,13 +505,13 @@ SpriteRenderer:
   m_SortingLayerID: 718143559
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4278371960119211202, guid: 40de9a8703e2e5a47882b0b86451c741,
+  m_Sprite: {fileID: -1194715063169438680, guid: 4f4f3433092127b468041c69f7b2b38d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 2.06, y: 1.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -611,18 +611,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010170817, y: -0.07252264}
+  m_Offset: {x: -0.11093044, y: -0.17309833}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8, y: 0.8}
-    newSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 2.06, y: 1.17}
+    newSize: {x: 2.06, y: 1.17}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5240867, y: 0.65289545}
+  m_Size: {x: 0.7991295, y: 0.8540468}
   m_EdgeRadius: 0
 --- !u!95 &5799902458436473082
 Animator:
@@ -721,7 +721,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.4665357, y: -0.017298222}
+  m_Offset: {x: 0.58763707, y: -0.05834949}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -732,7 +732,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7827394, y: 0.96540356}
+  m_Size: {x: 1.0249422, y: 1.0475061}
   m_EdgeRadius: 0
 --- !u!1 &6610763774825115603
 GameObject:
@@ -932,9 +932,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e34e5de4fb6f0405987dc922e27778b9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 378a3e02b6577f74ba9b21a96d9abe48, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.522
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1059,9 +1059,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f31dc225a1e464253acf1ca679f008bd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 952bfa92baa8a9041bc5e33fe8a1444d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.513
   m_Pitch: 1
   Loop: 0
   Mute: 0

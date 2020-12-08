@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager = null;
     [SerializeField] private Sprite[] flowerImages = new Sprite[2];
+    [SerializeField] private AudioSource checkSound;
     private SpriteRenderer currentSprite = null;
     private bool canCheckpoint = true;
     
@@ -22,6 +23,7 @@ public class Checkpoint : MonoBehaviour
             PlayerController player = collision.GetComponent<PlayerController>();
             if (player != null && canCheckpoint)
             {
+                checkSound.Play();
                 canCheckpoint = false;
                 gameManager.ChangeSpawnPosition(transform.position);
                 currentSprite.sprite = flowerImages[1];

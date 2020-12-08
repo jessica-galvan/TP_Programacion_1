@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2249069716015802262}
   - component: {fileID: 2249069716015802265}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2249069716630979459}
   - component: {fileID: 2249069716630979458}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BottomCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,11 +123,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2249069716649062346}
-  - component: {fileID: 2249069716649062348}
-  - component: {fileID: 2249069716649062349}
+  - component: {fileID: 1166613353584114238}
+  - component: {fileID: 7957962144128569209}
   m_Layer: 10
   m_Name: Bouncy
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,8 +146,27 @@ Transform:
   m_Father: {fileID: 2249069717594764888}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2249069716649062348
-CircleCollider2D:
+--- !u!251 &1166613353584114238
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2249069716649062347}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 175.5
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
+--- !u!68 &7957962144128569209
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -157,25 +176,23 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06841242, y: 0.23621583}
-  serializedVersion: 2
-  m_Radius: 0.5477861
---- !u!114 &2249069716649062349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2249069716649062347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81386bbb9db0f2f4d9c50e532783c153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canBounce: 1
-  jumpForce: 5
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.0716022, y: 0.5297773}
+  - {x: -0.87865096, y: 0.53898406}
+  - {x: -0.5504001, y: 0.6588781}
+  - {x: -0.19511065, y: 0.77132344}
+  - {x: 0.07926146, y: 0.7746198}
+  - {x: 0.25087705, y: 0.72549796}
+  - {x: 0.3914334, y: 0.6178663}
+  - {x: 0.50514954, y: 0.5665376}
+  - {x: 0.60481614, y: 0.5312898}
+  - {x: 0.7619435, y: 0.56446433}
+  - {x: 0.8514287, y: 0.59367347}
+  - {x: 1.0382954, y: 0.61831355}
 --- !u!1 &2249069717594764886
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,9 +204,9 @@ GameObject:
   - component: {fileID: 2249069717594764888}
   - component: {fileID: 2249069717594764889}
   - component: {fileID: 7924063025387143475}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PurpleMush
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,7 +218,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2249069717594764886}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -34.31, y: -3.84, z: 247.56915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -291,7 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2249069717628720050}
   - component: {fileID: 2249069717628720053}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
